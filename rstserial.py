@@ -93,6 +93,29 @@ def RstSerial(serial_id):
             ser.close()  
             pass
     return False
+def rstPc():
+    cmd=[0x53,0x04,0x57]
+    command=list2bytes(cmd)
+    ser=_connect()
+    if ser==False:
+        print('1')
+        return False
+    retry=2
+    for i in range(retry):
+        try:
+            ser.write(command)
+            #rev=ser.read(6)
+            #print('rev-->%s'%rev)
+            ser.flush()
+            ser.flushInput()
+            ser.flushOutput()
+            ser.close()
+            if rev==command:
+                return True
+        except:  
+            ser.close()  
+            pass
+    return False
 def list2bytes(cmd_list):
     cmd=''
     l_list=list(map(chr,cmd_list))

@@ -495,10 +495,10 @@ def main():
     ymodem.log.info('binPath-->%s'%binPath)
     ymodem.send_file(binPath)
     sys.exit(-3)
-    if flash(rom_file):
-        print '\n\t GREAT! FLASH DONE!!\n'
-    else:
-        print '\n\t !!!!WTF!!!! FLASH ERROR!!!\n'
+    #if flash(rom_file):
+    #    print '\n\t GREAT! FLASH DONE!!\n'
+    #else:
+    #    print '\n\t !!!!WTF!!!! FLASH ERROR!!!\n'
 
 if __name__ == '__main__':
     main()

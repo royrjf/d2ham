@@ -92,14 +92,15 @@ class Rcomm( threading.Thread ):
             self.xmodem_crc_func = crcmod.mkCrcFun(0x11021, rev=False,
                                                     initCrc=0xffff, xorOut=0x0000)
         elif pcname.find('rui') is 0:
-            self.trace.info('hello m3')
-            _Y_search_device(self.trace )
-            self.xmodem_crc_func = crcmod.mkCrcFun(0x11021, rev=False,
-                                                    initCrc=0xffff, xorOut=0x0000)
+            #self.trace.info('hello m3')
+            #_Y_search_device(self.trace )
+            #self.xmodem_crc_func = crcmod.mkCrcFun(0x11021, rev=False,
+            #                                        initCrc=0xffff, xorOut=0x0000)
             pass
         elif pcname.find('rui') is 0:
             #self.trace.info('hello m3')
             #self.trace.info('hello test Y')
+            #self.trace.info('hello test d2')
             #_Y_search_device(self.trace )
             #self.xmodem_crc_func = crcmod.mkCrcFun(0x11021, rev=False,
             #                                        initCrc=0xffff, xorOut=0x0000)

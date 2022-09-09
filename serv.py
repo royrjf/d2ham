@@ -9,19 +9,18 @@ import logging
 import zmq
 
 class Serv( threading.Thread ):
-    
     def __init__(self, trace, gui_port=1124, term_port=9527, pub_port=6666):
         super(Serv, self).__init__()
         self.trace = trace
         self._stop_event = threading.Event()
-        
         self.GUI_PORT = gui_port
         self.TERM_PORT = term_port
         self.PUB_PORT = pub_port
-        
         self.context = zmq.Context()
         self.gui_sock = self.context.socket(zmq.REP)
+        self.gui_sock.setsockopt(zmq.RCVTIMEO,1)
         self.term_sock = self.context.socket(zmq.REP)
+        self.term_sock.setsockopt(zmq.RCVTIMEO,1)
         self.pub_sock = self.context.socket(zmq.PUB)
     
     def join(self, timeout=1):
@@ -29,7 +28,6 @@ class Serv( threading.Thread ):
         super(Serv, self).join(timeout)
     
     def run(self):
-        
         self.gui_sock.bind('tcp://0.0.0.0:%d' %(self.GUI_PORT))
         self.term_sock.bind('tcp://0.0.0.0:%d' %(self.TERM_PORT))
         self.pub_sock.bind('tcp://0.0.0.0:%d' %(self.PUB_PORT))
@@ -81,9 +79,6 @@ class Serv( threading.Thread ):
         except:
             trace.error('failed to send json: %s' %(ex))
             pass
-    
-
-
 ##########################
 if __name__ == '__main__':
     serv = Serv()

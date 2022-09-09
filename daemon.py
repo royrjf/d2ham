@@ -24,6 +24,7 @@ import logging.handlers
 import json
 import rstserial
 import random
+import jsonConfig
 curDir = os.path.abspath(os.path.dirname(__file__))
 logPath = os.path.join(curDir, "log", "ham.log")
 #binPath = os.path.join(curDir, "d.bin")
@@ -62,7 +63,8 @@ __VERSION__ = '0.1'
 #2021.03.30 V4.24 d2.json bug
 #2021.12.10 v5.0 M3 bailu y
 #2021 12.23 v5.1 Y2 Exchange_Drv address x,y
-#2022 1.24 m3 ws2813 led control  Y reset hub
+#2022 1.24 v5.2 m3 ws2813 led control  Y reset hub
+#2022 06.19 v5.3 dual light certain
 class Daemon( threading.Thread ):
     EX_FLAG = {'EX_NORM':0x00, 'EX_OPEN':0x01, 'EX_CLOSE':0x02, 'EX_CLOSE_FORCE':0x04}
     sensor_bm = ('GEAR', 'DOOR', 'ADC_SOA', 'ADC_SOB', 'ADC_SOC')
@@ -77,14 +79,19 @@ class Daemon( threading.Thread ):
         self.res_cache = {} # format: {"id": {"res": {}, "time": 1234}, "id2":...}
         self.res_cache_timeout = 5
         self.drop=['DROP','DROP1','DROP2']
+        
         self.ac=['AC','AC1','AC2']
-        self.ac_last_t=[20,20,20]
-        self.ac_last_h=[60,60,60]
+        self.prev_t=10
+        self.prev_h=60
+        self.ac_t_filter_cnt=0
+        self.ac_h_filter_cnt=0
+        
         self.Y_MODE=""
         self.spring_start_time=0
         self.spring_stop_time=0
         self.spring_dict={}
         pcname=platform.node()
+        self.lightCertain='single'
         if pcname=="37101":#huaqiao
             self.Y_MODE="huaqiao"
         if pcname=="37111":#kunshan bailu
@@ -100,7 +107,7 @@ class Daemon( threading.Thread ):
         if pcname.find('D1')==0:
             self.D_MODE="D1"
         self.crc_func = crcmod.mkCrcFun(0x11021, rev=False, initCrc=0x0000, xorOut=0x0000)
-
+        
     def join(self, timeout=1):
         self._stop_event.set()
         self.rcomm.join()
@@ -114,7 +121,18 @@ class Daemon( threading.Thread ):
         if pcname.find('D'):
             pass
         else:
-            self.process_usb_init()
+            try:
+                self.drop_state=jsonConfig.readDropStates('d2.json')
+            except:
+                trace.info('write json Failed,json init')
+                jsonConfig.writeDropStates('d2.json',['OPEN','OPEN','OPEN'])
+            trace.info('drop_state--->%s'%self.drop_state)
+        
+        if jsonConfig.readDevice('d2.json','D2S').count(pcname) == 1:
+            self.lightCertain='dual'
+        if jsonConfig.readDevice('d2.json','D2').count(pcname) == 1:
+            self.lightCertain='dual'
+        trace.info('this device is %s light certain' %self.lightCertain)    
         self.init_rcomm()
         self.init_serv()
         self.init_checkusb()
@@ -155,375 +173,6 @@ class Daemon( threading.Thread ):
         rev = getattr(self, 'process_device_%s' % (device))(req)
         trace.debug('send_json -> %s' % str(rev))
         gui_sock.send_json(rev)
-    def process_device_m3(self, data):
-        cmd = data.get('command', False)
-        if cmd is False:
-            return {}
-        if cmd=='hi':
-            rev={'rep': {'device':'m3', 'result':'hi'}}
-            return 
-        elif cmd=='ac_poll':
-            t=random.uniform(9,10)
-            h=40.3
-            return {'rep': {'device':'m3', 'result':'sussess','t':t,'h':h}}
-        elif cmd=='hi_pcb':
-            board=data.get('board',False)
-            if board==False:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            if board =='lattice':
-                command='lH'
-            if board == 'beans':
-                command='OH'
-            command = command.encode('latin-1')
-            crc = struct.pack('H', self.crc_func(command))
-            command+= crc    
-            trace.info('%s' %command)
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-            except:
-                trace.error('no ack')
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            return {'rep': {'device': 'm3', 'result': 'success'}}
-        elif cmd=='pcb_version':
-            rev=self.m3_pcb_version(data)
-            if rev==False:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            else:
-                return {'rep': {'device': 'm3', 'result': rev}}
-        elif cmd=="lattice_led_control":
-            rev=self.m3_lattice_led_control(data)
-            if rev==True:
-                return {'rep': {'device': 'm3', 'result': 'success'}}
-            else:
-                return {'rep': {'device': 'm3', 'result': 'error'}}                
-        elif cmd =="xl9535_set":
-            para_list=data.get('para')
-            board=data.get('board')
-            if board=='lattice':
-                board_addr='l'
-            if board=='beans':
-                board_addr='O'
-            xl9535_addr=chr(int(data.get('xl9535_addr')))
-            rev=self.m3_gen_frame(board_addr,'X',xl9535_addr,'%c%c%c'%(para_list[0],para_list[1],para_list[2]))
-            if rev==True:
-                return {'rep': {'device': 'm3', 'result': 'success'}}
-            else:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-        elif cmd =='xl9535_read':
-            board=data.get('board')
-            if board=='lattice':
-                board_addr='l'
-            if board=='beans':
-                board_addr='O'
-            rev=self.m3_gen_frame(board_addr,'Y',chr(1),'')
-            if rev==True:
-                return {'rep': {'device': 'm3', 'result': 'success'}}
-            else:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-        elif cmd =="lattice_sensor":
-            devAddr=data.get('devAddr')
-            rev=self.m3_lattice_gen_frame(devAddr,'i','')
-            if rev==True:
-                return {'rep': {'device': 'm3', 'result': 'success'}}
-            else:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-        elif cmd=="lattice_lock_driver":
-            lock_ids=self.m3_lattile_lock_driver_process(data)
-            rev=self.m3_lattice_gen_frame('d',lock_ids)
-            if rev==True:
-                return {'rep': {'device': 'm3', 'result': 'success'}}
-            else:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-        elif cmd=="lattice_led_clear":
-            rev=self.m3_lattice_led_clear()
-            if rev==True:
-                return {'rep': {'device': 'm3', 'result': 'success'}}
-            else:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-        elif cmd=="lattice_close_all_led":
-            rev=self.m3_lattice_close_all_led()
-            if rev==True:
-                return {'rep': {'device': 'm3', 'result': 'success'}}
-            else:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-        elif cmd=='lucky_key':
-            command='Os'
-            crc = custom_crc32(map(ord, command)).to_bytes(4, 'big') 
-            command=command.encode()
-            command+=crc
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-                if r.startswith(b'Os'):
-                    return {'rep': {'device': 'm3', 'result': 'success','sensor':chr(r[2])}}
-            except:
-                trace.error('no ack')
-                return {'rep': {'device': 'd', 'result': 'error'}}
-            return {'rep': {'device': 'm3', 'result': 'success'}}
-        elif cmd=='led_colour':
-            rev=self.m3_open_rgb_led(data)
-            if rev==True:
-                return {'rep': {'device': 'y', 'result': 'success'}}
-            else:
-                return {'rep': {'device': 'y', 'result': 'error'}}
-        elif cmd=='open_led':
-            colour=data.get('colour',False)
-            command='AM%c'%colour
-            crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
-            command = command.encode('latin-1')
-            command+= crc
-            trace.info('%s' %command)
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-                return {'rep': {'device': 'y', 'result': 'success'}}
-            except:
-                trace.error('no ack')
-                return {'rep': {'device': 'y', 'result': 'error'}}
-            return {'rep': {'device': 'y', 'result': 'success'}}
-        elif cmd=='close_leds':
-            command='An'
-            crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
-            command = command.encode('latin-1')
-            command+= crc
-            trace.info('%s' %command)
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-                return {'rep': {'device': 'y', 'result': 'success'}}
-            except:
-                trace.error('no ack')
-                return {'rep': {'device': 'y', 'result': 'error'}}
-            return {'rep': {'device': 'y', 'result': 'success'}}
-        elif cmd=='led_colour_test':
-            led_id=data.get('led_id',False)
-            if led_id==False:
-                return {'rep': {'device':'m3', 'result':'error'}}
-            led_id=int(led_id)
-           
-            rgb=data.get('colour',False)
-            
-            rgb=int(rgb)
-            s = '%s%s' % (chr(rgb),chr(int(led_id)))
-            command='AN'+s
-            crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
-            command = command.encode('latin-1')
-            command+= crc
-            trace.info('%s' %command)
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-            except:
-                trace.error('no ack')
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            return {'rep': {'device': 'm3', 'result': 'success'}}
-        elif cmd=='led_colour_normal':
-            led_id=data.get('led_id',False)
-            if led_id==False:
-                return {'rep': {'device':'m3', 'result':'error'}}
-            led_id=int(led_id)
-            if led_id//100==1:
-                led_id=led_id%100+26
-            elif led_id//100==2:
-                led_id=led_id%100+13
-            elif led_id//100==3:
-                led_id=led_id%100
-            else:
-                return {'rep': {'device':'m3', 'result':'error'}}
-            rgb=data.get('colour',False)
-            rgb=int(rgb)
-            s = '%s%s' % (chr(rgb),chr(led_id))
-            command='AN'+s
-            crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
-            command = command.encode('latin-1')
-            command+= crc
-            trace.info('%s' %command)
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-            except:
-                trace.error('no ack')
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            return {'rep': {'device': 'm3', 'result': 'success'}}
-        elif cmd=='lid_control':
-            rev=self.m3_lid_control_process(data)
-            if rev==True:
-                return {'rep': {'device': 'm3', 'result': 'success'}}
-            else:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-        elif cmd=='lid_poll':  
-            rev=self.m3_lid_poll_process(data)
-            if rev==False:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            else:
-                return {'rep': {'device': 'm3', 'result': 'success','mate':rev}}
-        elif cmd=='drop_beans':
-            ch=data.get('ch',False)
-            if ch==False:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            circle=data.get('circle',False)
-            if circle==False:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            command=''
-            if int(ch)>7 or int(ch)<1:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            if int(circle)>20:
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            command='OD%c%c%c'%(1,int(ch),int(circle))
-            trace.info('command-->%s'%command)  
-            command = command.encode('latin-1')
-            crc = struct.pack('H', self.crc_func(command))
-            command+= crc
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=1.5*int(circle))
-                if r.startswith(b'OMOK'):
-                    return {'rep': {'device': 'm3', 'result': 'success'}}
-                elif r.startswith(b'OMERR'):
-                    return {'rep': {'device': 'm3', 'result': 'error'}}
-                else:
-                    return {'rep': {'device': 'm3', 'result': 'error'}}
-                trace.debug('r -> %s' %r)
-            except:
-                trace.error('no ack')
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            return {'rep': {'device': 'm3', 'result': 'success'}}
-        elif cmd=='drop_stop':
-            command='AN'
-            crc = custom_crc32(map(ord, command)).to_bytes(4, 'big') 
-            command=command.encode()
-            command+=crc
-            trace.info('%s' %command)
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-            except:
-                trace.error('no ack')
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            return {'rep': {'device': 'm3', 'result': 'success'}}
-        elif cmd=='open_door':
-            command=b'kP1\x03\x1f\xc4'
-            try:
-                self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-                if r.startswith(b'kP'):
-                    return {'rep': {'device': 'm3', 'result': 'success'}}
-            except:
-                trace.error('no ack')
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            return {'rep': {'device': 'm3', 'result': 'success'}}
-        elif cmd=='close_door':
-            command=b'kP1\x03\x1f\xc4'
-            try:
-                self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-                if r.startswith(b'kP'):
-                    return {'rep': {'device': 'm3', 'result': 'success'}}
-            except:
-                trace.error('no ack')
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            return {'rep': {'device': 'm3', 'result': 'success'}}
-        elif cmd=='drop_cup':
-            rev=self.m3_drop_cup(data)
-            if rev==True:
-                return {'rep': {'device': 'y', 'result': 'success'}}
-            elif rev==False:
-                return {'rep': {'device': 'y', 'result': 'error'}}
-            else:
-                return {'rep': {'device': 'y', 'result': 'error','meta':rev}}
-        elif cmd=='lock_sensor':
-            sensor_id=data.get('sensor_id',False)
-            if sensor_id==False:
-                return {'rep': {'device':'d', 'result':'error'}}
-            command='Es%c'%int(sensor_id)
-            crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
-            command=command.encode('latin-1')
-            command=command+crc
-            trace.info('cmd-->%s'%command)
-            try:
-                self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-                if r.startswith(b'Es'):
-                    return {'rep': {'device': 'm3', 'result': 'success','sensor':chr(r[2])}}
-            except:
-                trace.error('no ack')
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-            return {'rep': {'device': 'm3', 'result': 'success'}}
-        elif cmd=='lock_test_new':
-            command='EM'
-            lock_id=data.get('lock_id',False)
-            if lock_id==False:
-                return {'rep': {'device':'d', 'result':'error'}}
-            try:
-                lock_id = list(map(int, lock_id.split(',')))
-            except Exception as ex:
-                trace.error('lock id invalid: %s' %ex)
-                return {'rep': {'device':'d', 'result':'error'}}
-            for num in lock_id:
-                if num//100==1:
-                    num=num%100+32
-                    if num>=37:
-                        num=num+1
-                elif num//100==2:
-                    num=num%100+16
-                elif num//100==3:
-                    num=num%100
-                else:
-                    return {'rep': {'device':'m3', 'result':'error'}}
-                s = '%s' % (chr(num))
-                if num==36:
-                    command+='$%'
-                else:
-                    command+=s
-            crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
-            command=command.encode('latin-1')
-            command=command+crc
-            trace.info('cmd%s'%command)
-            try:
-                self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                return {'rep': {'device': 'm3', 'result': 'success'}}
-                trace.debug('r -> %s' %r)
-            except:
-                trace.error('no ack')
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-        elif cmd=='lock_test':
-            lock_id=data.get('lock_id',False)
-            if lock_id==False:
-                return {'rep': {'device':'m3', 'result':'error'}}
-            command='EM%c'%int(lock_id)
-            crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
-            command=command.encode('latin-1')
-            command=command+crc
-            trace.info('cmd-->%s'%command)
-            try:
-                self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-                return {'rep': {'device': 'm3', 'result': 'success'}}
-            except:
-                trace.error('no ack')
-                return {'rep': {'device': 'm3', 'result': 'error'}}
-        elif cmd=='lock':
-            retry=3
-            for i in range(0,retry):
-                rev= self.m3_process_open_lock(data)
-                if rev== True:
-                    return {'rep': {'device': 'm3', 'result': 'success'}}
-            return {'rep': {'device': 'm3', 'result': 'error'}}
-        elif cmd=='switch':
-            return {'rep': {'device': 'm3', 'result': 'success'}}
     def process_device_y(self, data):
         cmd = data.get('command', False)
         if cmd is False:
@@ -1204,7 +853,8 @@ class Daemon( threading.Thread ):
         elif cmd=='read_res_cache':
             return {'rep': {'device':'d', 'result':'success','mata':self.res_cache}}
         elif cmd=='usb_err_time':
-            return {'rep': {'device':'d', 'result':'success','time':int(self.checkusb.usb_err_cnt/10)}}
+            time=self.checkcom.read_usb_disconnect_time()
+            return {'rep': {'device':'d', 'result':'success','time':time}}
         elif cmd=='sync_belt_push':
             rev=self.process_sync_belt_push(data)
             cabinet=data.get('cabinet',False)
@@ -1258,6 +908,7 @@ class Daemon( threading.Thread ):
             cabinet=data.get('cabinet',False)
             if cabinet== False:
                 return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
+            
             if self.D_MODE=="D3":
                 t=data.get('time',False)
                 if time is False:
@@ -1401,101 +1052,107 @@ class Daemon( threading.Thread ):
             return {'rep': {'device': 'y', 'result': 'success'}}
         elif cmd =='spring_poll':
             rev = self.process_spring_poll(data)
-            if rev=='success':
-                self.spring_stop_time=time.time()
-                if self.spring_stop_time-self.spring_start_time<1.5:
-                    rev=self.process_spring(self.spring_data)
-                    trace.info('spring error')
-                    return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error','meta':'none'}})
+            if rev==True:
                 return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'success'}})
-            if rev==None:
-                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error','meta':'none'}})
             else:
-                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error','meta':rev}})
-        elif cmd =='drop_q_get_test':
+                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
+        elif cmd == 'drop_q_get_test':
             while not self.rcomm.dev_comb.DROP.q.empty():
                 d = self.rcomm.dev_comb.DROP.q.get_nowait()
             return {'rep': {'device': 'd', 'result':'success', 'cabinet':'1','meta': d}}
-        elif cmd=='drop_query':
-            cabinet=data.get('cabinet',False)
-            if cabinet is False:
-                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
-            num=int(cabinet)    
-            return {'rep': {'device': 'd', 'result':'success', 'meta': self.process_drop_json(num,'r')}}
-        elif cmd == 'drop_poll':
-            rev= []   
-            cabinet=data.get('cabinet',False)
-            num=int(cabinet)-1
-            if self.checkusb.usb_poll_state[num]==0:   
-                return self.set_res_cache(id_, {'rep': {'device': 'd', 'result':'success', 'cabinet':'1','meta': ['BLOCK']}})    
-            while not self.rcomm.dev_comb.__dict__[self.drop[num]].q.empty():
-                data = self.rcomm.dev_comb.__dict__[self.drop[num]].q.get_nowait()
-                #data = data.decode('latin-1)
-                if data == b'\xff\x0c\xb0\x07\x00\x00\x08\xa0\xffF\xaf\xfe':
-                    rev.append('OPEN')
-                    self.drop_state[int(cabinet)-1]='OPEN'
+        elif cmd == 'drop_query':
+            if self.lightCertain == 'single':
+                cabinet=data.get('cabinet',False)
+                if cabinet is False:
+                    return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
+                num=int(cabinet)    
+                return {'rep': {'device': 'd', 'result':'success', 'meta': self.process_drop_json(num,'r')}}
+            else:
+                rev=self.process_dual_drop_query(data)
+                if rev==False:
+                    return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
                 else:
-                    rev.append('BLOCK')
-                    trace.warn('drop data->%s'%data)
-            return self.set_res_cache(id_, {'rep': {'device': 'd', 'result':'success', 'cabinet':'1','meta': rev}}) 
+                    if rev==['1','1']:
+                        return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'success','meta':'OPEN' }})
+                    else:
+                        return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'success','meta':'BLOCK' }})
+                    
+        elif cmd == 'drop_version':
+            cabinet =data.get('cabinet',False)
+            if cabinet== False:
+                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
+            addr=chr(int('1')-1+ord('x'))
+            command='%sV' %addr
+            command = command.encode('latin-1')
+            crc = struct.pack('H', self.crc_func(command))
+            command+= crc    
+            trace.info('%s' %command)
+            self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
+            try:
+                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
+                if r.startswith(b'%sv' %addr.encode()):
+                    return self.set_res_cache(id_, {'rep': {'device':'d', 'result':r[1:5].decode()}})
+                else:
+                    trace.debug('r -> %s' %r)
+                    return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
+            except:
+                trace.error('no ack')
+                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
+        elif cmd == 'drop_poll':
+            if self.lightCertain == 'single':
+                rev= []  
+                cabinet=data.get('cabinet',False)
+                num=int(cabinet)-1
+                if self.checkusb.usb_poll_state[num] == 0:   
+                    return self.set_res_cache(id_, {'rep': {'device': 'd', 'result':'success', 'cabinet':'1','meta': ['BLOCK']}})    
+                while not self.rcomm.dev_comb.__dict__[self.drop[num]].q.empty():
+                    data = self.rcomm.dev_comb.__dict__[self.drop[num]].q.get_nowait()
+                    #data = data.decode('latin-1)
+                    if data == b'\xff\x0c\xb0\x07\x00\x00\x08\xa0\xffF\xaf\xfe':
+                        rev.append('OPEN')
+                        self.drop_state[int(cabinet)-1]='OPEN'
+                    else:
+                        rev.append('BLOCK')
+                        trace.warn('drop data->%s'%data)
+                return self.set_res_cache(id_, {'rep': {'device': 'd', 'result':'success', 'cabinet':'1','meta': rev}}) 
+            else:
+                rev=self.process_dual_drop_poll(data)
+                if rev ==False:
+                    return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
+                else:
+                    return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'success','meta':rev}})
         elif cmd == 'drop_check':
-            rev =self.process_drop_check(data)
+            if self.lightCertain=='single':
+                rev =self.process_drop_check(data)
+            else:
+                rev=self.process_dual_drop_check(data)
             if rev:
                 return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'success'}})
             else:
-                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})                                          
+                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})                                                      
         elif cmd == 'drop_clear':
-            rev=self.process_drop_clear(data)
+            if self.lightCertain=='single':
+                rev=self.process_drop_clear(data)
+            else:
+                rev=self.process_dual_drop_clear(data)
             if rev:
                 return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'success'}})
             else:
-                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})                   
-        elif cmd=='drop_test':
+                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
+                
+        elif cmd == 'drop_test':
             rev=self.process_drop_test(data)
             if rev == False:
                 return self.set_res_cache(id_, {'rep': {'device': 'd', 'result':'error', 'meta':[]}})
             else:
                 return self.set_res_cache(id_, {'rep': {'device': 'd', 'result':'success','meta': rev}})
         elif cmd == 'ac_poll':
-            prev_t=[0,0,0]
-            prev_h=[0,0,0]
-            cabinet= data.get('cabinet', False)
-            if cabinet is False:
-                return False
-            num=int(cabinet)-1
-            try:        
-                self.rcomm.dev_send(self.rcomm.dev_comb.__dict__[self.ac[num]], b'\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xd2')
-                data = self.rcomm.dev_comb.__dict__[self.ac[num]].q.get(timeout=0.5)
-            except:
-                trace.info('ppppppppppp')
-                return self.set_res_cache(id_, {'rep': {'device': 'd', 'result': 'error', 'error_level': 'warning', 'meta':'no ack'}})
-            if len(data) != 18:
-                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
+            rev = self.process_ac_poll(data)
+            if rev == False:
+                return self.set_res_cache(id_, {'rep': {'device': 'd', 'result':'error'}})
             else:
-                if (data[4]>>7)&0x01==1:
-                    return self.set_res_cache(id_,{'rep': {'device':'d', 'result': 'success', 't': (data[4]<<8|data[3]-65536)/10 ,'h':(data[7]<<8|data[6])/10}})  
-                else:
-                    prev_t[num]=(data[4]<<8|data[3])/10
-                    prev_h[num]=(data[7]<<8|data[6])/10
-                    if prev_t[num]-self.ac_last_t[num]>10 or prev_h[num]-self.ac_last_h[num]>10:
-                        self.ac_last_t[num]=prev_t[num]
-                        self.ac_last_h[num]=prev_h[num]
-                        try:        
-                            self.rcomm.dev_send(self.rcomm.dev_comb.__dict__[self.ac[num]], b'\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xd2')
-                            data = self.rcomm.dev_comb.__dict__[self.ac[num]].q.get(timeout=0.5)
-                        except:
-                            return self.set_res_cache(id_, {'rep': {'device': 'd', 'result': 'error', 'error_level': 'warning', 'meta':'no ack'}})
-                        if len(data) != 18:
-                            return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
-                        else:
-                            if (data[4]>>7)&0x01==1:
-                                return self.set_res_cache(id_,{'rep': {'device':'d', 'result': 'success', 't': (data[4]<<8|data[3]-65536)/10 ,'h':(data[7]<<8|data[6])/10}}) 
-                            else:
-                                return self.set_res_cache(id_,{'rep': {'device':'d', 'result': 'success', 't': (data[4]<<8|data[3])/10 ,'h':(data[7]<<8|data[6])/10}}) 
-                    else:
-                        self.ac_last_t[num]=prev_t[num]
-                        self.ac_last_h[num]=prev_h[num]
-                        return self.set_res_cache(id_, {'rep': {'device':'d', 'result': 'success', 't': prev_t[num], 'h': prev_h[num]}})
+                t,h = rev
+                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'success','t':t,'h':h}})
         elif cmd == 'RESET':
             address=data.get('address',False)
             if address==False:
@@ -1504,8 +1161,7 @@ class Daemon( threading.Thread ):
             trace.info('%s'%cmd)
             cmd=cmd.encode()
             self.rcomm.dev_send(self.rcomm.dev_comb.GRAVITY, cmd)
-            return {'rep': {'device': 'd', 'result': 'success'}}
-            
+            return {'rep': {'device': 'd', 'result': 'success'}}            
         elif cmd=='ac_set':
             cabinet=data.get('cabinet',False)
             if cabinet== False:
@@ -1571,7 +1227,7 @@ class Daemon( threading.Thread ):
                 else:
                     meta.append('success')
             return self.set_res_cache(id_, {'rep': {'device': 'd', 'result': state,'t':t,'h_min':h_min,'h_max':h_max,'meta':meta}})        
-        elif cmd == 'write_ac_register':
+        elif cmd =='write_ac_register':
             address=data.get('address',False)
             cabinet=data.get('cabinet',False)
             if cabinet==False:
@@ -1713,22 +1369,83 @@ class Daemon( threading.Thread ):
             #return {'rep': {'device': 'd', 'result': 'error'}}
         return True                            
     def process_led_control(self,cabinet,state):
+        if self.lightCertain == 'single':
+            DEV=self.rcomm.dev_comb.GRAVITY  
+        if self.lightCertain == 'dual':
+            DEV=self.rcomm.dev_comb.Y
         led_cmd_list=[b'EL\x07\xbd\xb7\x1a',b'JR\xcd(\xe0r',b'OT\xbeWI\xce',b'EM\x03|\xaa\xad',b'JS\xc9\xe9\xfd\xc5',b'OO\xd9\rY\xdf']#led_on1,led_on2,led_on3,led_off1,led_off2,led_off3
         mata=[]
         if state==1:
             command=led_cmd_list[int(cabinet)-1]
         else:
             command=led_cmd_list[int(cabinet)+3-1]
-        self.rcomm.dev_send(self.rcomm.dev_comb.GRAVITY, command)
+        self.rcomm.dev_send(DEV, command)
         try:
-            r = self.rcomm.dev_comb.GRAVITY.q.get(timeout=0.5)
+            r = DEV.q.get(timeout=0.5)
             trace.debug('r -> %s' %r)
             return True
         except:
             trace.error('no ack')
             return False
             #return {'rep': {'device': 'd', 'result': 'error'}}
+    def process_ac_poll(self,data,addr=''):
+        cabinet = data.get('cabinet',False)
+        if cabinet == False:
+            return False
+        if self.lightCertain == 'single':
+            DEV = self.rcomm.dev_comb.__dict__[self.ac[int(cabinet)-1]]
+            cmd = b'\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xd2' 
+        if self.lightCertain == 'dual':
+            DEV = self.rcomm.dev_comb.Y
+            cmd = b'%c\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xd2'  %(0x78+int(cabinet)-1)
+        trace.info('cmd--->%s'%cmd)
+        try:        
+            self.rcomm.dev_send(DEV, cmd)
+            data = DEV.q.get(timeout=0.5)
+            if self.lightCertain == 'dual':
+                data=data[1:]
+        except:
+            trace.info('no ack')
+            return False
+            
+        if len(data) != 18:
+            trace.info('recv len error-->%d' %len(data))
+            return False
+        else:
+            if (data[4]>>7)&0x01==1:
+                return (data[4]<<8|data[3]-65536)/10,(data[7]<<8|data[6])/10
+            else:
+                t = (data[4]<<8|data[3])/10
+                h = (data[7]<<8|data[6])/10
+                
+                if abs(t-self.prev_t)>5:
+                    self.ac_t_filter_cnt+=1
+                    if self.ac_t_filter_cnt>10:
+                        self.ac_t_filter_cnt=0
+                        self.prev_t=t
+                    else:
+                        t=self.prev_t
+                else:
+                    self.ac_t_filter_cnt=0
+                    self.ac_last_t=t
+                
+                if abs(h-self.prev_h)>20:
+                    self.ac_h_filter_cnt+=1
+                    if self.ac_h_filter_cnt>10:
+                        self.ac_h_filter_cnt=0
+                        self.prev_h=h
+                    else:
+                        h=self.prev_h
+                else:
+                    self.ac_h_filter_cnt=0
+                    self.prev_h=h
+                    
+                return t,h 
     def process_gravity(self, data):
+        if self.lightCertain == 'single':
+            DEV=self.rcomm.dev_comb.GRAVITY  
+        if self.lightCertain == 'dual':
+            DEV=self.rcomm.dev_comb.Y
         slot_id = data.get('slots', False)
         if slot_id is False:
             return False
@@ -1770,11 +1487,11 @@ class Daemon( threading.Thread ):
                 cmd += crc
                 trace.debug('curr cmd ----> %s' %cmd)
                 try:
-                    self.rcomm.dev_send(self.rcomm.dev_comb.GRAVITY, cmd)
+                    self.rcomm.dev_send(DEV, cmd)
                 except:
                     pass
                 try: 
-                    r = self.rcomm.dev_comb.GRAVITY.q.get(timeout=0.25)
+                    r = DEV.q.get(timeout=0.25)
                     trace.info('gravity command 1')
                     #trace.debug('r -> %s' %r)
                 except:
@@ -1798,73 +1515,17 @@ class Daemon( threading.Thread ):
         cabinet3_resp=b'ODOKIB\x15\xf9\r\n'
         if cabinet=='1':
             rev=self.bucket_get(cabinet1_cmd,t,cabinet1_resp)
-            if rev:
-                return True
-            else:
-                return False
+            return rev
         elif cabinet=='2':
             rev=self.bucket_get(cabinet2_cmd,t,cabinet2_resp)
-            if rev:
-                return True
-            else:
-                return False
+            return rev
         elif cabinet=='3':
             rev=self.bucket_get(cabinet3_cmd,t,cabinet3_resp)
-            if rev:
-                return True
-            else:
-                return False
-        elif cabinet=='all':
-            rev=self.bucket_get(cabinet2_cmd,t,cabinet2_resp)
-            trace.info('lock 2 %s' %rev)
-            rev=self.bucket_get(cabinet3_cmd,t,cabinet3_resp)
-            trace.info('lock 3 %s' %rev)
-            rev=self.bucket_get(cabinet1_cmd,t,cabinet1_resp)
-            trace.info('lock 1 %s' %rev)
             return rev
         else:
             trace.info("magnet cabinet is wrong")
             return False
-    def process_spring_a(self, data):
-        slot_id = data.get('slot_id', False)
-        if slot_id is False:
-            trace.error('no slot id')
-            return
-        try:
-            slot_id = int(slot_id)
-            slot_id = slot_id.to_bytes(1, 'big')
-        except:
-            trace.error('slot id invalid: %s' %slot_id)
-            return False
 
-        cmd = b'\xfa\xfe\x01%c\x01\xff\xda\xef' %(slot_id)
-        trace.info('curr cmd -> %s' %cmd)
-
-        if self.rcomm.dev_send(self.rcomm.dev_comb.GRAVITY, cmd) is False:
-            trace.error('failed to write')
-            return False
-        else:            
-            return True 
-    def process_spring_b(self, data):
-        slot_id = data.get('slot_id', False)
-        if slot_id is False:
-            trace.error('no slot id')
-            return False
-        try:
-            slot_id = int(slot_id)
-            slot_id = slot_id.to_bytes(1, 'big')
-        except:
-            trace.error('slot id invalid: %s' %slot_id)
-            return False
-
-        cmd = b'\xfa\xfe\x01%c\x01\xff\xda\xef' %(slot_id)
-        trace.info('curr cmd -> %s' %cmd)
-
-        if self.rcomm.dev_send(self.rcomm.dev_comb.SPRING, cmd) is False:
-            trace.error('failed to write')
-            return False
-        else:
-            return True   
     def process_spring(self,data):
         rev=''
         cabinet=data.get('cabinet',False)
@@ -1879,19 +1540,6 @@ class Daemon( threading.Thread ):
         if slot_id is False:    
             trace.error('slot_id error')
             return False
-            
-        if self.rcomm.spring_select_mode_flag==1:
-            if shelf=='l':
-                #trace.info('old d1 l')
-                rev=self.process_spring_a(data)
-                return rev
-            elif shelf=='r':
-                #trace.info('old d1 r')
-                rev=self.process_spring_b(data)
-                return rev
-            else:
-                trace.error('spring shelf id error')
-                return False
         if shelf=='l':
             shelf_id=1
         elif shelf=='r':
@@ -1899,57 +1547,38 @@ class Daemon( threading.Thread ):
         else:
             trace,error('spring shelf id error')
             return False
-        
         spring_address=(int(cabinet)-1)*2+shelf_id-1
+        if self.lightCertain == 'single':
+            if self.rcomm.spring_select_mode_flag==1:
+                if shelf=='l':
+                    DEV=self.rcomm.dev_comb.GRAVITY  
+                if shelf=='r':
+                    DEV=self.rcomm.dev_comb.SPRING
+                spring_address=b'\x01'
+            else:
+                DEV=self.rcomm.dev_comb.SPRING
+        if self.lightCertain == 'dual':
+            DEV=self.rcomm.dev_comb.Y    
         try:
             slot_id = int(slot_id)
-            slot_id = slot_id.to_bytes(1, 'big')
+            slot_id = slot_id.to_bytes(1,'big')
             spring_address=spring_address.to_bytes(1,'big')
         except:
             trace.error('slot id invalid: %s' %slot_id)
             return False
-        
         cmd = b'\xfa\xfe%c%c\x01\xff\xda\xef' %(spring_address,slot_id)
         trace.info('curr cmd -> %s' %cmd)
-        if self.rcomm.dev_send(self.rcomm.dev_comb.SPRING, cmd) is False:
+        if self.rcomm.dev_send(DEV, cmd) is False:
             trace.error('failed to write')
             return False
         else:            
             return True 
-    def process_spring_poll_b(self):
-        try:
-            data = self.rcomm.dev_comb.SPRING.q.get(timeout=0.125)
-            trace.info('%s' %data)
-            if data == b'\x02\x01\x01':
-                return 'no_motor' #.decode('latin-1')
-            elif data== b'\x03\x01':
-                return 'cmd_err' #.decode('latin-1')
-            else:
-                return 'success' #.decode('latin-1')
-            return 'success' #.decode('latin-1')
-        except:
-            return None 
-    def process_spring_poll_a(self):
-        try:
-            data = self.rcomm.dev_comb.GRAVITY.q.get(timeout=0.125)
-            trace.info('%s' %data)
-            if data == b'\x02\x01\x01':
-                return 'no_motor' #.decode('latin-1')
-            elif data== b'\x03\x01':
-                return 'cmd_err' #.decode('latin-1')
-            else:
-                return 'success' #.decode('latin-1')
-            return 'success' #.decode('latin-1')
-        except:
-            return None
     def process_spring_poll(self,data):
         cabinet=data.get('cabinet',False)
         if cabinet is False:
-            trace.info('cabinet error')
             return False
         shelf =data.get('shelf',False)
         if shelf is False:
-            trace('cabinet error') 
             return False
         if shelf=='l':
             shelf_id=1
@@ -1961,46 +1590,49 @@ class Daemon( threading.Thread ):
         except:
             trace.error('slot id invalid: %s' %slot_id)
             return False 
-        if self.rcomm.spring_select_mode_flag==0:
+        if self.lightCertain == 'single':
+            if self.rcomm.spring_select_mode_flag == 1:
+                spring_address=b'\x01'   
+                if shelf == 'l':
+                    DEV= self.rcomm.dev_comb.GRAVITY
+                if shelf == 'r':
+                    DEV= self.rcomm.dev_comb.SPRING
+            else:
+                DEV= self.rcomm.dev_comb.SPRING
             try:
-                data = self.rcomm.dev_comb.SPRING.q.get(timeout=0.125)
-                trace.info('%s' %data)
-                if data == b'\x02\x01%c' %spring_address:
-                    return 'no_motor' #.decode('latin-1')
+                data = DEV.q.get(timeout=0.125)
+                trace.info('data-->%s'%data)
+                if data == b'\x00\x01':# %spring_address:
+                    return True
+                elif data == b'\x02\x01%c' %spring_address:
+                    trace.info('no motor')
                 elif data== b'\x03%c' %spring_address:
-                    return 'cmd_err' #.decode('latin-1')
+                    trace.info('cmd err')
                 else:
-                    return 'success' #.decode('latin-1')
-                return 'success' #.decode('latin-1')
+                    trace.info('data-->%s'%data) 
+                return False
             except:
-                return None   
-        else:
-            if shelf=='l':
-                try:
-                    data = self.rcomm.dev_comb.GRAVITY.q.get(timeout=0.125)
-                    trace.info('%s' %data)
-                except:
-                    return None
-            else:
-                try:
-                    data = self.rcomm.dev_comb.SPRING.q.get(timeout=0.125)
-                    trace.info('%s' %data)
-                except:
-                    return None
-            if data == b'\x02\x01\x01':
-                return 'no_motor' #.decode('latin-1')
-            elif data== b'\x03\x01':
-                return 'cmd_err' #.decode('latin-1')
-            elif data==b'\x00\x01':
-                return 'success' #.decode('latin-1')
-            else:
-                return None
+                return False   
+        if self.lightCertain == 'dual':
+            cmd= b'\xfa\xfe%c\x00\x00\x33\xda\xef' %(spring_address)
+            DEV= self.rcomm.dev_comb.Y
+            self.rcomm.dev_send(DEV, cmd)
+            try:
+                r = DEV.q.get(timeout=0.2)
+                if r.startswith(b'\x02'):
+                    if r[3] == 0:
+                        return True
+                    else:
+                        return False
+            except:
+                trace.info("no ack")
+                return False
+  
     def process_internal_belt(self,cabinet,speed,direction,timeout):   
         if int(speed)==0:
             speed=0    
         else:
             speed=int(speed)*10+35        
-
         address=chr(int(cabinet)+64)
         cmd = '%s,%s,%s,%s,%s,' %(address,'BELT',direction,str(speed),timeout)
         crc = custom_crc32(map(ord, cmd)).to_bytes(4, byteorder='big')
@@ -2235,6 +1867,26 @@ class Daemon( threading.Thread ):
             trace.info('motor run err num %s' %rev)
             return rev
         return True 
+    def process_dual_drop_clear(self,data):
+        cabinet =data.get('cabinet',False)
+        if cabinet== False:
+            return False
+        addr=chr(int('cabinet')-1+ord('x'))
+        command='%sC' %addr
+        command = command.encode('latin-1')
+        crc = struct.pack('H', self.crc_func(command))
+        command+= crc    
+        trace.info('%s' %command)
+        self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
+        try:
+            r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
+            if r.startswith(b'%sCok' %addr.encode()):
+                return True
+            else:
+                return False
+        except:
+            trace.error('no ack')
+            return False
     def process_drop_clear(self,data):
         cabinet = data.get('cabinet', False)
         num=int(cabinet)-1
@@ -2245,6 +1897,90 @@ class Daemon( threading.Thread ):
             self.rcomm.dev_comb.__dict__[self.drop[num]].q.queue.clear()
             return True
         except:
+            return False
+    def process_dual_drop_query(self,data):
+        cabinet =data.get('cabinet',False)
+        if cabinet== False:
+            return False
+        addr=chr(int('1')-1+ord('x'))
+        command='%sr' %addr
+        command = command.encode('latin-1')
+        crc = struct.pack('H', self.crc_func(command))
+        command+= crc    
+        trace.info('%s' %command)
+        self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
+        try:
+            r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
+            if r.startswith(b'%sr' %addr.encode()):
+                r=r.decode('latin-1').split(',')
+                return r[1:3]
+            else:
+                return False
+        except:
+            trace.error('no ack')
+            return False
+    def get_drop_state(self,data):
+        data_list=list(map(int,data))
+        drop_up_list=[]
+        drop_down_list=[]
+        for i in range(0,data_list[0]):
+            if data_list[1]%2 ==1:
+                drop_up_list.append('OPEN')
+            else:
+                drop_up_list.append('BLOCK')
+            data_list[1]=data_list[1]//2
+        for i in range(0,data_list[2]):
+            if data_list[3]%2 ==1:
+                drop_down_list.append('OPEN')
+            else:
+                drop_down_list.append('BLOCK')
+            data_list[3]=data_list[3]//2        
+        drop_up_list.reverse()
+        drop_down_list.reverse()
+        trace.info('drop_down-->%s'%drop_down_list)
+        trace.info('drop_up-->%s'%drop_up_list)
+        return drop_up_list+drop_down_list
+    def process_dual_drop_poll(self,data):
+        cabinet =data.get('cabinet',False)
+        if cabinet== False:
+            return False
+        addr=chr(int(cabinet)-1+ord('x'))
+        command='%sP' %addr
+        command = command.encode('latin-1')
+        crc = struct.pack('H', self.crc_func(command))
+        command+= crc    
+        trace.info('%s' %command)
+        self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
+        try:
+            r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
+            if r.startswith(b'%sP' %addr.encode()):
+                r=r.decode('latin-1').split(',')
+                return self.get_drop_state(r[1:5])
+            else:
+                trace.debug('r -> %s' %r)
+                return False
+        except:
+            trace.error('no ack')
+            return False
+    def process_dual_drop_check(self,data):
+        cabinet =data.get('cabinet',False)
+        if cabinet== False:
+            return False
+        addr=chr(int('cabinet')-1+ord('x'))
+        command='%sH' %addr
+        command = command.encode('latin-1')
+        crc = struct.pack('H', self.crc_func(command))
+        command+= crc    
+        trace.info('%s' %command)
+        self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
+        try:
+            r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
+            if r.startswith(b'%shi' %addr.encode()):
+                return True
+            else:
+                return False
+        except:
+            trace.error('no ack')
             return False
     def process_drop_check(self,data):
         state=''
@@ -2408,7 +2144,6 @@ class Daemon( threading.Thread ):
                             mata[num]=mata[num]+'0'
                         temp=temp>>1
         return mata
-        
     def process_write_ACregister(self,address,t,cabinet):
         num=int(cabinet)-1
         data_temp=t
@@ -2447,7 +2182,6 @@ class Daemon( threading.Thread ):
                 return False
         except:
             return False            
-            
     def process_read_ACregister(self,address,cabinet):
         num=int(cabinet)-1
         cmd=b'\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00%c\x00\x00\x00' %(address)       
@@ -2511,58 +2245,29 @@ class Daemon( threading.Thread ):
                 return d
         return True
     def bucket_get(self,cmd,time,ack):
+        if self.lightCertain == 'single':
+            DEV=self.rcomm.dev_comb.GRAVITY  
+        if self.lightCertain == 'dual':
+            DEV=self.rcomm.dev_comb.Y
         t=chr(time)
         command=cmd+t
         crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
         command = command.encode('latin-1')
         command+= crc
         trace.info('command-->%s'%command)
-        self.rcomm.dev_send(self.rcomm.dev_comb.GRAVITY, command)
-        try:
-            r = self.rcomm.dev_comb.GRAVITY.q.get(timeout=0.2)
-            trace.debug('r -> %s' %r)
-            if r==ack:
-                trace.info('1')
-                return True
-            else:
-                trace.info('wrong ack')
-                return True                  
-        except:
+        retry = 3
+        for i in range(0,retry):
+            self.rcomm.dev_send(DEV, command)
             try:
-                self.rcomm.dev_send(self.rcomm.dev_comb.GRAVITY, command)
-                r = self.rcomm.dev_comb.GRAVITY.q.get(timeout=0.2)
+                r = DEV.q.get(timeout=0.2)
                 trace.debug('r -> %s' %r)
                 if r==ack:
-                    trace.info('2')
                     return True
                 else:
                     trace.info('wrong ack')
-                    return True
             except:
-                try:
-                    self.rcomm.dev_send(self.rcomm.dev_comb.GRAVITY, command)
-                    r = self.rcomm.dev_comb.GRAVITY.q.get(timeout=0.2)
-                    trace.debug('r -> %s' %r)
-                    if r==ack:
-                        trace.info('3')
-                        return True
-                    else:
-                        trace.info('wrong ack')
-                        return True
-                except:
-                    try:
-                        self.rcomm.dev_send(self.rcomm.dev_comb.GRAVITY, command)
-                        r = self.rcomm.dev_comb.GRAVITY.q.get(timeout=0.2)
-                        trace.debug('r -> %s' %r)
-                        if r==ack:
-                            trace.info('4')
-                            return True
-                        else:
-                            trace.info('wrong ack')
-                            return True
-                    except:
-                        trace.error('no ack')
-                        return False
+                trace.info('no ack')
+        return False
     def process_ac_reset(self,cabinet):
         t=[]
         h=[]
@@ -2592,119 +2297,7 @@ class Daemon( threading.Thread ):
                 return False
         #trace.info('t:%s,h:%s'%t%h)
         return True
-    def process_pc_start_set_ac(self):
-        usb=[]
-        write_cmd=b'Z\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x17\x01\x00\x00\xf0'
-        read_cmd=b'Z\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x17\x00\x00\x00l' 
-        try:
-            usb=os.listdir('/dev/serial/by-id/') 
-        except:
-            pass
-        for d in usb:
-            if d == 'usb-fusionRobotics_D1_b0001-if03-port0':
-                try:
-                    self.rcomm.dev_send(self.rcomm.dev_comb.AC, write_cmd)
-                    self.rcomm.dev_send(self.rcomm.dev_comb.AC, read_cmd)
-                    ac_temp=self.rcomm.dev_comb.AC.q.get(timeout=0.5)
-                    trace.info('AC %s'%ac_temp)
-                    if ac_temp[14]==1:
-                        trace.info('ac ok')
-                except:
-                    trace.info('ac error')
-                    pass
-            elif d=='usb-fusionRobotics_D2_b0001-if02-port0':
-                try:
-                    self.rcomm.dev_send(self.rcomm.dev_comb.AC1, write_cmd)
-                    self.rcomm.dev_send(self.rcomm.dev_comb.AC1, read_cmd)
-                    ac_temp=self.rcomm.dev_comb.AC1.q.get(timeout=0.5)
-                    trace.info('AC1 %s'%ac_temp)
-                    if ac_temp[14]==1:
-                        trace.info('ac1 ok')
-                except:
-                    trace.info('ac1 error')
-                    pass
-            elif d== 'usb-fusionRobotics_D2_b0001-if03-port0':
-                try:
-                    self.rcomm.dev_send(self.rcomm.dev_comb.AC2, write_cmd)
-                    self.rcomm.dev_send(self.rcomm.dev_comb.AC2, read_cmd)
-                    ac_temp=self.rcomm.dev_comb.AC2.q.get(timeout=0.5)
-                    trace.info('AC2 %s'%ac_temp)
-                    if ac_temp[14]==1:
-                        trace.info('ac2 ok')
-                except:
-                    trace.info('ac2 error')
-                    pass
-    def process_drop_json(self,cabinet,r='r',state='open'):
-        json_err=0
-        jsonPath = os.path.join(curDir, "d2.json")
-        drop_list=['drop_1','drop_2','drop_3']
-        if r=='r':
-            while json_err==0:
-                f=open(jsonPath,encoding='utf-8')
-                content=f.read()
-                try:
-                    trace.info('d2.json 1')
-                    user_dict = json.loads(content)
-                    trace.info('d2.json 2')
-                    json_err=1
-                except:
-                    with open(jsonPath, "w") as jsonFile:
-                        data={"drop_2": "OPEN", "drop_3": "OPEN", "drop_1": "OPEN"}
-                        trace.info('d2.json 3')
-                        json.dump(data, jsonFile,ensure_ascii=False)
-                        trace.info('d2.json 4')
-            if user_dict[drop_list[cabinet-1]]=='BLOCK' or user_dict[drop_list[cabinet-1]]=='OPEN':
-                return user_dict[drop_list[cabinet-1]]
-            else:
-                trace.error('json error-->%s'%user_dict[drop_list[cabinet-1]])
-                return 'BLOCK'
-        else: 
-            with open(jsonPath, "r",encoding='utf-8') as jsonFile:
-                data=json.load(jsonFile)
-                data[drop_list[cabinet-1]]=state
-            with open(jsonPath, "w") as jsonFile:
-                json.dump(data, jsonFile,ensure_ascii=False)
-            return True
-    def process_usb_init(self):
-        count=1
-        self.drop_state[0]=self.process_drop_json(1,'r')
-        trace.info('drop1-->%s'%self.drop_state[0])
-        self.drop_state[1]=self.process_drop_json(2,'r')
-        trace.info('drop2-->%s'%self.drop_state[1])
-        self.drop_state[2]=self.process_drop_json(3,'r')
-        trace.info('drop3-->%s'%self.drop_state[2])
-        while self.usb_state:
-            count+=1
-            if count==20:
-                trace.info('usb reset')
-                os.system('sudo /home/fusion/kiosk/sbin/fuckusb /dev/bus/usb/001/002')
-                time.sleep(3)
-                os.system('/home/fusion/kiosk/bin/rotate.sh')
-            time.sleep(0.1)
-            try:
-                listdir=os.listdir('/dev/serial/by-id/') 
-                if 4<=len(listdir)<=6:
-                    if listdir.count('usb-fusionRobotics_D1_b0001-if00-port0'):
-                        if listdir.count('usb-fusionRobotics_D1_b0001-if01-port0'):
-                            if listdir.count('usb-fusionRobotics_D1_b0001-if02-port0'):
-                                if listdir.count('usb-fusionRobotics_D1_b0001-if03-port0'):
-                                    self.usb_state=0
-                                    trace.info('single machine')
-                elif len(listdir)>6:
-                    if listdir.count('usb-fusionRobotics_D1_b0001-if00-port0'):
-                        if listdir.count('usb-fusionRobotics_D1_b0001-if01-port0'):
-                            if listdir.count('usb-fusionRobotics_D1_b0001-if02-port0'):
-                                if listdir.count('usb-fusionRobotics_D1_b0001-if03-port0'):
-                                    if listdir.count('usb-fusionRobotics_D2_b0001-if00-port0'):
-                                        if listdir.count('usb-fusionRobotics_D2_b0001-if01-port0'):
-                                            if listdir.count('usb-fusionRobotics_D2_b0001-if02-port0'):
-                                                if listdir.count('usb-fusionRobotics_D2_b0001-if03-port0'):
-                                                    self.usb_state=0
-                                                    trace.info('mult machine')
-                else:
-                    pass
-            except:
-                trace.info('usb error')
+
     def open(self, block=True, timeout=3, retry=3):
         rev=''
         if self.ex_is_opened():
@@ -2716,7 +2309,6 @@ class Daemon( threading.Thread ):
             trace.debug('goto rev: %s' %rev)
             if not block:
                 return
-            
             if rev is False:
                 trace.warning('commu error or jam?')
             else:
@@ -3025,7 +2617,7 @@ class Daemon( threading.Thread ):
                 self.goto_para(self.qd_read()-100, 200, 100, 500, 2.5, -0.5, 0, block_check=True, retry=1, timeout=5)
 
             #self.open(block=False)
-            time.sleep(.2)
+            time.sleep(0.2)
         
         return False
     def is_closed(self):
@@ -3156,282 +2748,9 @@ class Daemon( threading.Thread ):
         for i in range(0,4):
             cmd+=cmd_list[i]
         cmd=cmd.encode('latin-1')    
-    def m3_process_open_lock(self,data):
-        lock_id=data.get('lock_id',False)
-        if lock_id ==False:
-            return False
-        lock_id=int(lock_id)    
-        if lock_id<108 and lock_id >100:
-            num=lock_id-100
-        elif lock_id<205 and lock_id >200:
-            num=7+lock_id-200
-        elif lock_id==205:
-            num=12
-        elif lock_id<210 and lock_id >205:
-            num=7+4+2+lock_id-205
-        elif lock_id<313 and lock_id >300:
-            num=7+4+2+4+lock_id-300
-        elif lock_id<416 and lock_id >400:
-            num=7+4+2+4+12+lock_id-400
-        else:
-            return False
-        trace.info('lock_id--->%d'%num)
-        command='EM%c'%num
-        crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
-        command=command.encode('latin-1')
-        command=command+crc
-        trace.info('cmd-->%s'%command)
-        try:
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-            r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-            if r.startswith(b'EM'):
-                time.sleep(0.5)
-                if self.m3_check_sensor(num)=='0':  #open
-                    return True
-                else:
-                    trace.info('Lattice not open')
-                    return False
-            else:
-                False
-        except:
-            trace.error('no ack')
-            return False
-    def m3_check_sensor(self,sensor_id):
-        command='Es%c'%(int(sensor_id))
-        crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
-        command=command.encode('latin-1')
-        command=command+crc
-        trace.info('cmd-->%s'%command)
-        try:
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-            r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-            #trace.debug('r -> %s' %r)
-            if r.startswith(b'Es'):
-                return chr(r[2])
-            else:
-                return False
-        except:
-            trace.error('no ack')
-            return False
-        return {'rep': {'device': 'm3', 'result': 'success'}}    
-    def m3_open_rgb_led(self,data):
-        led_dict={'101':5,'105':6,'106':7,'201':8,'202':9,'203':10,'204':11,'208':13,'209':14,'301':17,'302':18,'303':19,'304':20,'305':21,'402':22,'404':23,'405':24,'410':25,'412':26,'403':27,'406':28,'409':29}
-        led_id=data.get('led_id',False)
-        if led_id==False:
-            return False
-        led_id=led_dict.get(led_id,False)
-        if led_id==False:
-            return False
-        rgb=data.get('colour',False)
-        if led_id==False:
-            return False
-        s = '%s%s' % (chr(int(rgb)),chr(led_id))
-        command='AN'+s
-        crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
-        command = command.encode('latin-1')
-        command+= crc
-        trace.info('%s' %command)
-        self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-        try:
-            r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-            trace.debug('r -> %s' %r)
-        except:
-            trace.error('no ack')
-            return False
-        return True
     def process_reset_serial(self,ch):
         rev=rstserial.RstSerial(int(ch))
         return rev
-    def m3_lattice_led_control(self,data,retry=3):
-        colour=data.get('colour',False)
-        if colour==False:
-            return False
-        led_ids=data.get('led_ids',False)
-        if led_ids==False:
-            return False
-        led_list=led_ids.split(',')
-        cmd_id=3
-        cmd='l'+chr(cmd_id)+chr(43)+chr(len(led_list))+chr(colour[0])+chr(colour[1])+chr(colour[2])
-        for d in led_list:
-            if int(d) in range(101,108):#1~7
-                cmd=cmd+chr(int(d)-100)
-            elif int(d) in range(201,209):#8~15
-                cmd=cmd+chr(16-(int(d)-200))
-            elif int(d) in range(301,313):#16~28
-                cmd=cmd+chr(int(d)-300+15)
-            elif int(d) in range(401,416):#29~43
-                cmd=cmd+chr(43-(int(d)-400))
-            else:
-                return False
-        cmd = cmd.encode('latin-1')
-        crc = struct.pack('H', self.crc_func(cmd))
-        cmd+= crc
-        trace.info('%s' %cmd)
-        for i in range(0,retry):
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, cmd)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-                if r.startswith(b'lLED'):
-                    return True
-            except:
-                trace.error('no ack')
-                return False
-        return False
-    def m3_lattice_led_clear(self,retry=3):
-        cmd='l'+chr(6)
-        cmd = cmd.encode('latin-1')
-        crc = struct.pack('H', self.crc_func(cmd))
-        cmd+= crc
-        trace.info('%s' %cmd)
-        for i in range(0,retry):
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, cmd)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-                if r.startswith(b'lCLEAR'):
-                    return True
-            except:
-                trace.error('no ack')
-                return False
-        return False
-    def m3_lattice_close_all_led(self,retry=3):
-        cmd='l'+chr(7)
-        cmd = cmd.encode('latin-1')
-        crc = struct.pack('H', self.crc_func(cmd))
-        cmd+= crc
-        trace.info('%s' %cmd)
-        for i in range(0,retry):
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, cmd)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-                if r.startswith(b'lCLOSE'):
-                    return True
-            except:
-                trace.error('no ack')
-                return False
-        return False
-    def m3_lattile_lock_driver_process(self,data):
-        lock_ids=data.get('lock_id',False)
-        if lock_ids ==False:
-            return False
-        lock_list=list(map(int,lock_ids.split(',')))
-        if len(lock_list)>2:
-            trace.info('max lock is 2')
-            return False
-        lock_para=chr(len(lock_list))
-        for d in lock_list:
-            d=(d//100-1)*16+d%100
-            lock_para=lock_para+chr(d) 
-        return lock_para
-    def m3_gen_frame(self,board_addr,command,xl9535_addr,para,retry=2):
-        cmd=board_addr+command+xl9535_addr+para
-        cmd = cmd.encode('latin-1')
-        crc = struct.pack('H', self.crc_func(cmd))
-        cmd+= crc
-        trace.info('%s' %cmd)
-        for i in range(0,retry):
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, cmd)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-                if r.startswith(b'%s%sok' %(board_addr.encode(),command.encode())):
-                    return True
-                else:
-                    trace.error('error ack')
-            except:
-                trace.error('no ack')
-                return False
-        return False
-    def m3_lid_control_process(self,data,retry=3):
-        ch_list=data.get('ch',False)
-        if ch_list==False:
-            return False
-        ch_len=len(ch_list) 
-        cmd='OC%c'%ch_len
-        back_duty=3
-        wait_time=10
-        for d in range(0,ch_len):
-            cmd+=chr(int(ch_list[d]))
-            cmd+=chr(back_duty)
-            cmd+=chr(wait_time)
-            
-        cmd = cmd.encode('latin-1')
-        crc = struct.pack('H', self.crc_func(cmd))
-        cmd+= crc
-        trace.info('%s' %cmd)
-        for i in range(0,retry):
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, cmd)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                trace.debug('r -> %s' %r)
-                if r.startswith(b'OC'):
-                    return True
-            except:
-                trace.error('no ack')
-                return False
-        return False
-    def m3_lid_poll_process(self,data,retry=3):
-        cmd='OS'
-        
-        cmd = cmd.encode('latin-1')
-        crc = struct.pack('H', self.crc_func(cmd))
-        cmd+= crc
-        trace.info('%s' %cmd)
-        for i in range(0,retry):
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, cmd)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                r=r.decode('latin-1')
-                trace.debug('r -> %s' %r)
-                if r.startswith('OS'):
-                    return r[3]
-            except:
-                trace.error('no ack')
-                return False
-        return False
-    def m3_drop_cup(self,data,retry=3):
-        delay_list=data.get('delay')
-        duty=data.get('duty')
-        cmd='OP'+chr(int(duty))+chr(delay_list[0])+chr(delay_list[1])
-        
-        cmd = cmd.encode('latin-1')
-        crc = struct.pack('H', self.crc_func(cmd))
-        cmd+= crc
-        trace.info('%s' %cmd)
-        for i in range(0,retry):
-            self.rcomm.dev_send(self.rcomm.dev_comb.Y, cmd)
-            try:
-                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                r=r.decode('latin-1')
-                trace.debug('r -> %s' %r)
-                if r.startswith('OP'):
-                    return True
-            except:
-                trace.error('no ack')
-                return False
-        return False
-    def m3_pcb_version(self,data):
-        board=data.get('board',False)
-        if board==False:
-            return {'rep': {'device': 'm3', 'result': 'error'}}
-        if board =='lattice':
-            command='lV'
-        if board == 'beans':
-            command='OV'
-        command = command.encode('latin-1')
-        crc = struct.pack('H', self.crc_func(command))
-        command+= crc    
-        trace.info('%s' %command)
-        self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
-        try:
-            r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-            trace.debug('r -> %s' %r)
-            return r[1:5].decode('latin-1')
-        except:
-            trace.error('no ack')
-            return False
 
 def main():
     daemon = Daemon()

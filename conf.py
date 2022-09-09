@@ -34,11 +34,11 @@ protocol:
 """
 
 DEV_LIST = [
-    {'name': 'Y', 'dev_name': '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DO02G7QA-if00-port0@','type': 'RS485', 'baud': 115200,'timeout': 3, 'DOC': ac_doc},  #usb-FTDI_FT230X_Basic_UART_DO01N0B9-if00-port0  DO02GNWH
-    {'name': 'GRAVITY', 'dev_name': '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if00-port0', 'type':'RS485', 'baud':115200, 'timeout':0.2, 'DOC':gravity_doc},
-    {'name': 'SPRING', 'dev_name': '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0', 'type':'RS485', 'baud':9600, 'timeout': 10, 'DOC':spring_doc},
+    {'name': 'Y', 'dev_name': '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DO02G7QA-if00-port0','type': 'RS485', 'baud': 115200,'timeout': 3, 'DOC': ac_doc},  #usb-FTDI_FT230X_Basic_UART_DO01N0B9-if00-port0  DO02GNWH
+    {'name': 'GRAVITY', 'dev_name': '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0', 'type':'RS485', 'baud':115200, 'timeout':0.2, 'DOC':gravity_doc},
+    {'name': 'SPRIN', 'dev_name': '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0', 'type':'RS485', 'baud':9600, 'timeout': 10, 'DOC':spring_doc},
     {'name': 'DROP', 'dev_name': '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0', 'type':'RS485', 'baud':9600, 'timeout': 0.5, 'DOC':drop_doc},
-    {'name': 'AC', 'dev_name': '/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AB0LIIMJ-if00-port0', 'type': 'TTL232', 'baud': 9600, 'timeout': 0.5, 'DOC': ac_doc},
+    {'name': 'AC', 'dev_name': '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0', 'type': 'TTL232', 'baud': 9600, 'timeout': 0.5, 'DOC': ac_doc},
     {'name': 'DROP1', 'dev_name': '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0', 'type':'RS485', 'baud':9600, 'timeout':0.5, 'DOC':gravity_doc},
     {'name': 'DROP2', 'dev_name': '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0', 'type':'RS485', 'baud':9600, 'timeout': 0.5, 'DOC':spring_doc},
     {'name': 'AC1', 'dev_name': '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0', 'type':'RS485', 'baud':9600, 'timeout': 0.5, 'DOC':drop_doc},
