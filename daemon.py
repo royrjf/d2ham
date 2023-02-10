@@ -128,10 +128,19 @@ class Daemon( threading.Thread ):
                 jsonConfig.writeDropStates('d2.json',['OPEN','OPEN','OPEN'])
             trace.info('drop_state--->%s'%self.drop_state)
         
-        if jsonConfig.readDevice('d2.json','D2S').count(pcname) == 1:
+        if self.process_pcb_hi('x') == True :
             self.lightCertain='dual'
-        if jsonConfig.readDevice('d2.json','D2').count(pcname) == 1:
+        elif self.process_pcb_hi('y') ==True:
             self.lightCertain='dual'
+        elif self.process_pcb_hi('y') ==True:
+            self.lightCertain='dual'
+        else:
+            self.lightCertain='single'
+        
+        #if jsonConfig.readDevice('d2.json','D2S').count(pcname) == 1:
+        #    self.lightCertain='dual'
+        #if jsonConfig.readDevice('d2.json','D2').count(pcname) == 1:
+        #    self.lightCertain='dual'
         trace.info('this device is %s light certain' %self.lightCertain)    
         self.init_rcomm()
         self.init_serv()
@@ -158,6 +167,8 @@ class Daemon( threading.Thread ):
         except Exception as ex:
             #trace.error(traceback.format_exc(sys.exc_info()[-1]))
             trace.error('failed to process json: %s' % (ex))
+            self.serv.join()
+            self.serv.start()
             gui_sock.send_json({})
             return False
     def process_gui_json(self, gui_sock, data):
@@ -181,6 +192,23 @@ class Daemon( threading.Thread ):
             return {'rep': {'device':'y', 'result':'hi'}}
         if cmd=='hi_pcb':
             command='AH'
+            crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
+            command = command.encode('latin-1')
+            command+= crc
+            trace.info('%s' %command)
+            self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
+            try:
+                r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
+                trace.debug('r -> %s' %r)
+            except:
+                trace.error('no ack')
+                return {'rep': {'device': 'y', 'result': 'error'}}
+            return {'rep': {'device': 'y', 'result': 'success'}}
+        if cmd=='version':
+            address=data.get('address',False)
+            if address == False:
+                return {'rep': {'device': 'y', 'result': 'error'}}
+            command='%s,version,'%address
             crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
             command = command.encode('latin-1')
             command+= crc
@@ -378,23 +406,12 @@ class Daemon( threading.Thread ):
                 return {'rep': {'device': 'y', 'result': 'error'}}
             speed_list=[int(i) for i in speed.split(',')]
             
-            for i in range(0,len(speed_list)):
-                if speed_list[i]==0:
+            for i in range(0,len(speed_list)):#0 35 45 55 65 75 100
+                speed_list[i]=speed_list[i]*10+25
+                if speed_list[i]==25:
                     speed_list[i]=0
-                elif speed_list[i]==1:
-                    speed_list[i]=35
-                elif speed_list[i]==2:
-                    speed_list[i]=45
-                elif speed_list[i]==3:
-                    speed_list[i]=55
-                elif speed_list[i]==4:
-                    speed_list[i]=65
-                elif speed_list[i]==5:
-                    speed_list[i]=75
-                elif speed_list[i]==6:
-                    speed_list[i]=85
-                else:
-                    speed_list[i]=50
+                if speed_list[i]==85:
+                    speed_list[i]=100
             direction=data.get('direction',False)
             if direction==False:
                 return {'rep': {'device': 'y', 'result': 'error'}}
@@ -405,24 +422,16 @@ class Daemon( threading.Thread ):
                 return {'rep': {'device': 'y', 'result': 'error'}}
             cmd_list=['aXc','bXc','cXc']
             for i in range(0,len(belt_id_list)):
-                if belt_id_list[i]>=1 and belt_id_list[i]<=2:
-                    cmd_list[0]+=str(belt_id_list[i])
-                    cmd_list[0]+=chr(speed_list[i])
-                    cmd_list[0]+=direction_list[i]
-                    cmd_id_list.append(0)
-                elif belt_id_list[i]>=3 and belt_id_list[i]<=4:
-                    cmd_list[1]+=str(belt_id_list[i]-2)
-                    cmd_list[1]+=chr(speed_list[i])
-                    cmd_list[1]+=direction_list[i]
-                    cmd_id_list.append(1)
-                elif belt_id_list[i]>=5 and belt_id_list[i]<=6:
-                    cmd_list[2]+=str(belt_id_list[i]-4)
-                    cmd_list[2]+=chr(speed_list[i])
-                    cmd_list[2]+=direction_list[i]
-                    cmd_id_list.append(2)
+                if belt_id_list[i]%2==0:
+                    index=belt_id_list[i]//2-1
                 else:
-                    trace.info('more than 6 belt are not support')
-                    return {'rep': {'device': 'y', 'result': 'error'}}
+                    index=belt_id_list[i]//2
+                assert index in range(0,4)    
+                cmd_list[index]+=str((belt_id_list[i]+1)%2+1)
+                cmd_list[index]+=chr(speed_list[i])
+                cmd_list[index]+=direction_list[i]
+                cmd_id_list.append(index)
+            
             for i in cmd_id_list:
                 command=cmd_list[i]
                 crc = custom_crc32(map(ord, command)).to_bytes(4, 'big')
@@ -438,7 +447,8 @@ class Daemon( threading.Thread ):
                         state='error'
                     try:
                         r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
-                        if r==b'%cXOK\r\n'%cmd_list[i][0].encode():   
+                        r=r.decode('latin-1')
+                        if r.startswith('aX'):   
                             break
                         else:
                             trace.error('ack-->%s' %r)
@@ -552,7 +562,7 @@ class Daemon( threading.Thread ):
             if self.Y_MODE=="bailu":
                 rev=self.process_convey_belt_old(data)
                 if rev==True:
-                    return {'rep': {'device': 'y', 'result': 'success'}}
+                    return {'rep': {'device': 'y', 'result': 'sFuccess'}}
                 else:
                     return {'rep': {'device': 'y', 'result': 'error'}}
             cabinet=data.get('cabinets',False)
@@ -570,15 +580,17 @@ class Daemon( threading.Thread ):
             timeout=data.get('timeout',False)
             if timeout==False:
                 timeout='40'
+            accel_spd=data.get('accel_spd',False)
+            if accel_spd ==False:
+                accel_spd_list=speed_list
+            else:
+                accel_spd_list=accel_spd.split(',')
             motor_num=len(cabinet_list)
             if len(speed_list)!=motor_num and len(direction_list)!=motor_num:
                 return {'rep': {'device': 'y', 'result': 'error'}}
             for i in range(0,motor_num):
-                if cabinet_list[i]==3:
-                    pass
-                else:
-                    rev=self.process_internal_belt(cabinet_list[i],speed_list[i],direction_list[i],timeout)
-                    time.sleep(0.07)
+                rev=self.process_internal_belt(cabinet_list[i],speed_list[i],direction_list[i],timeout,accel_spd_list[i])
+                time.sleep(0.07)
                 if rev==False:
                     trace.info("motor %s not ack"%i)
                 else: 
@@ -749,6 +761,19 @@ class Daemon( threading.Thread ):
             except:
                     trace.error('no ack')
                     return {'rep': {'device': 'y', 'result': 'error'}} 
+        elif cmd == 'read_adc':
+            rev=self.process_read_adc(data)
+            if rev == False:
+                return {'rep': {'device': 'y', 'result': 'error'}}
+            else:
+                return {'rep': {'device': 'y', 'result': 'success','meta':rev}}
+        
+        elif cmd =='read_sensor':
+            rev=self.process_read_sensor(data)
+            if rev == True:
+                return {'rep': {'device': 'y', 'result': 'success'}}
+            else:
+                return {'rep': {'device': 'y', 'result': 'error'}} 
         elif cmd=='sync_belt_push':
             if self.Y_MODE=="huaqiao":
                 rev=self.process_sync_belt_push_huaqiao(data)
@@ -1043,11 +1068,11 @@ class Daemon( threading.Thread ):
             else:                        
                 return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})                    
         elif cmd=='readJSON_test':
-            rev=self.process_drop_json(2,'r')
+            rev=self.rcomm.process_drop_json(2,'r')
             trace.info("rev-->%s"%rev)
             return {'rep': {'device': 'y', 'result': 'success'}}
         elif cmd=='writeJSON_test':
-            rev=self.process_drop_json(2,'w','dsdsa')
+            rev=self.rcomm.process_drop_json(2,'w','dsdsa')
             trace.info("rev-->%s"%rev)
             return {'rep': {'device': 'y', 'result': 'success'}}
         elif cmd =='spring_poll':
@@ -1066,7 +1091,7 @@ class Daemon( threading.Thread ):
                 if cabinet is False:
                     return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
                 num=int(cabinet)    
-                return {'rep': {'device': 'd', 'result':'success', 'meta': self.process_drop_json(num,'r')}}
+                return {'rep': {'device': 'd', 'result':'success', 'meta': self.rcomm.process_drop_json(num,'r')}}
             else:
                 rev=self.process_dual_drop_query(data)
                 if rev==False:
@@ -1076,7 +1101,7 @@ class Daemon( threading.Thread ):
                         return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'success','meta':'OPEN' }})
                     else:
                         return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'success','meta':'BLOCK' }})
-                    
+                
         elif cmd == 'drop_version':
             cabinet =data.get('cabinet',False)
             if cabinet== False:
@@ -1109,6 +1134,10 @@ class Daemon( threading.Thread ):
                     data = self.rcomm.dev_comb.__dict__[self.drop[num]].q.get_nowait()
                     #data = data.decode('latin-1)
                     if data == b'\xff\x0c\xb0\x07\x00\x00\x08\xa0\xffF\xaf\xfe':
+                        rev.append('OPEN')
+                        self.drop_state[int(cabinet)-1]='OPEN'
+                    elif b'\xff\x0c\xb0\x07\x00\x00\x08\xa0\xffF\xaf\xfe' in data:
+                        rev.append('BLOCK')
                         rev.append('OPEN')
                         self.drop_state[int(cabinet)-1]='OPEN'
                     else:
@@ -1153,14 +1182,16 @@ class Daemon( threading.Thread ):
             else:
                 t,h = rev
                 return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'success','t':t,'h':h}})
-        elif cmd == 'RESET':
+        elif cmd == 'pcb_reset':
             address=data.get('address',False)
             if address==False:
                 return {'rep': {'device': 'd', 'result': 'error'}}
-            cmd ='RESET%s'%address
-            trace.info('%s'%cmd)
-            cmd=cmd.encode()
-            self.rcomm.dev_send(self.rcomm.dev_comb.GRAVITY, cmd)
+            cmd ='%sR'%address
+            command = command.encode('latin-1')
+            crc = struct.pack('H', self.crc_func(command))
+            command+= crc    
+            trace.info('%s' %command)
+            self.rcomm.dev_send(self.rcomm.dev_comb.Y, cmd)
             return {'rep': {'device': 'd', 'result': 'success'}}            
         elif cmd=='ac_set':
             cabinet=data.get('cabinet',False)
@@ -1234,34 +1265,48 @@ class Daemon( threading.Thread ):
                 return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
             if address is False:
                 return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
-            if cabinet=='1':
-                AC_CMD=self.rcomm.dev_comb.AC
-            elif cabinet=='2':
-                AC_CMD=self.rcomm.dev_comb.AC1
-            elif cabinet =='3':
-                AC_CMD=self.rcomm.dev_comb.AC2
-            else:
-                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
+                
             num=data.get('data',False)
             if num is False:
-                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})  
+                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
             try:
                 address=int(address).to_bytes(1,'big')
                 num=int(num).to_bytes(1,'big')
             except:
                 trace.error('address invalid: %s' %address)
-                return {'rep': {'device': 'd', 'result': 'error'}}   
-            cmd=b'\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00%c%c\x00\x00' %(address,num)   
-            crc8 = crcmod.predefined.Crc('crc-8-maxim')
-            crc8.update(cmd)
-            c=crc8.crcValue.to_bytes(1,'big')
-            cmd=cmd+c
-            trace.info('%s' %cmd)     
+                return {'rep': {'device': 'd', 'result': 'error'}}
+        
+            if self.lightCertain == 'single':
+                if cabinet=='1':
+                    AC_CMD=self.rcomm.dev_comb.AC
+                elif cabinet=='2':
+                    AC_CMD=self.rcomm.dev_comb.AC1
+                elif cabinet =='3':
+                    AC_CMD=self.rcomm.dev_comb.AC2
+                else:
+                    return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
+                cmd=b'\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00%c%c\x00\x00' %(address,num)  
+                crc8 = crcmod.predefined.Crc('crc-8-maxim')
+                crc8.update(cmd)
+                c=crc8.crcValue.to_bytes(1,'big')
+                cmd=cmd+c
+            else:
+                addr=chr(int(cabinet)-1+ord('x')).encode('latin-1')
+                cmd=b'\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00%c%c\x00\x00' %(address,num)  
+                crc8 = crcmod.predefined.Crc('crc-8-maxim')
+                crc8.update(cmd)
+                c=crc8.crcValue.to_bytes(1,'big')
+                cmd=cmd+c
+                cmd=addr+cmd
+                AC_CMD=self.rcomm.dev_comb.Y
+            trace.info('%s' %cmd)         
+            
             try:
                 self.rcomm.dev_send(AC_CMD, cmd)
                 return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'success'}})
             except:
-                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})          
+                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})  
+
         elif cmd =='read_ac_register':
             address=data.get('address',False)
             cabinet=data.get('cabinet',False)
@@ -1269,25 +1314,36 @@ class Daemon( threading.Thread ):
                 return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
             if address is False:
                 return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
-            if cabinet=='1':
-                AC_CMD=self.rcomm.dev_comb.AC
-            elif cabinet=='2':
-                AC_CMD=self.rcomm.dev_comb.AC1
-            elif cabinet =='3':
-                AC_CMD=self.rcomm.dev_comb.AC2
-            else:
-                return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
             try:
                 address=int(address)
                 address=address.to_bytes(1,'big')
             except:
                 trace.error('address invalid: %s' %address)
                 return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})   
-            cmd=b'\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00%c\x00\x00\x00' %(address)   
-            crc8 = crcmod.predefined.Crc('crc-8-maxim')
-            crc8.update(cmd)
-            c=crc8.crcValue.to_bytes(1,'big')
-            cmd=cmd+c
+                
+            if self.lightCertain == 'single':
+                if cabinet=='1':
+                    AC_CMD=self.rcomm.dev_comb.AC
+                elif cabinet=='2':
+                    AC_CMD=self.rcomm.dev_comb.AC1
+                elif cabinet =='3':
+                    AC_CMD=self.rcomm.dev_comb.AC2
+                else:
+                    return self.set_res_cache(id_, {'rep': {'device':'d', 'result':'error'}})
+                cmd=b'x\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00%c\x00\x00\x00' %(address)
+                crc8 = crcmod.predefined.Crc('crc-8-maxim')
+                crc8.update(cmd)
+                c=crc8.crcValue.to_bytes(1,'big')
+                cmd=cmd+c
+            else:
+                addr=chr(int(cabinet)-1+ord('x')).encode('latin-1')
+                cmd=b'\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00%c\x00\x00\x00' %(address)
+                crc8 = crcmod.predefined.Crc('crc-8-maxim')
+                crc8.update(cmd)
+                c=crc8.crcValue.to_bytes(1,'big')
+                cmd=cmd+c
+                cmd=addr+cmd
+                AC_CMD=self.rcomm.dev_comb.Y
             trace.info('%s' %cmd) 
             try:
                 self.rcomm.dev_send(AC_CMD, cmd)
@@ -1303,38 +1359,7 @@ class Daemon( threading.Thread ):
                 return {'rep': {'device':'d', 'result':'success'}}
             else:
                 return {'rep': {'device': 'd', 'result': 'error'}}  
-        elif cmd=='pcb_update':
-            address=data.get('address',False)
-            if address== False:
-                return {'rep': {'device': 'd', 'result': 'error'}} 
-            version=data.get('version',False)
-            if version==False:
-                return {'rep': {'device': 'd', 'result': 'error'}} 
-            if version=='old':
-                binPath = os.path.join(curDir, "d_v1.1.1.bin")
-            else:
-                binPath = os.path.join(curDir, "d_v2.1.1.bin")
-            command='RESET'
-            command+=address
-            command=command.encode()
-            trace.info('cmd-->%s'%command)
-            self.rcomm.dev_send(self.rcomm.dev_comb.GRAVITY, command)
-            time.sleep(1)
-            try:
-                r=self.rcomm.dev_comb.GRAVITY.q.get(timeout=3)
-            except:
-                return {'rep': {'device': 'd', 'result': 'error','info':'no ack'}} 
-            self.rcomm.dev_send(self.rcomm.dev_comb.GRAVITY, b'1')
-            time.sleep(0.1)
-            self.rcomm.dev_send(self.rcomm.dev_comb.GRAVITY, b'2')
-            time.sleep(0.6)
-            self.rcomm.dev_send(self.rcomm.dev_comb.GRAVITY, b'1')
-            getc=YModem.getc
-            putc=YModem.putc
-            ymodem=YModem(getc,putc)
-            trace.info('%s'%binPath)
-            ymodem.send_file(binPath)
-            return {'rep': {'device': 'd', 'result': 'success'}} 
+
         elif cmd=='reset_serial':
             ch=data.get('ch',False)
             if data == False:
@@ -1397,13 +1422,26 @@ class Daemon( threading.Thread ):
             cmd = b'\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xd2' 
         if self.lightCertain == 'dual':
             DEV = self.rcomm.dev_comb.Y
-            cmd = b'%c\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xd2'  %(0x78+int(cabinet)-1)
-        trace.info('cmd--->%s'%cmd)
+            cabinet =data.get('cabinet',False)
+            if cabinet== False:
+                return False
+            addr=chr(int(cabinet)-1+ord('x'))
+            cmd='%sO' %addr
+            cmd = cmd.encode('latin-1')
+            crc = struct.pack('H', self.crc_func(cmd))
+            cmd+= crc    
+
+            #cmd = b'%c\x5a\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xd2'  %(0x78+int(cabinet)-1)
+            trace.info('cmd--->%s'%cmd)
         try:        
             self.rcomm.dev_send(DEV, cmd)
             data = DEV.q.get(timeout=0.5)
             if self.lightCertain == 'dual':
-                data=data[1:]
+                if data.startswith(chr(0x78+int(cabinet)-1).encode('latin-1')):
+                    data=data[1:]
+                else:
+                    self.rcomm.open_dev()
+                    return False
         except:
             trace.info('no ack')
             return False
@@ -1417,29 +1455,8 @@ class Daemon( threading.Thread ):
             else:
                 t = (data[4]<<8|data[3])/10
                 h = (data[7]<<8|data[6])/10
-                
-                if abs(t-self.prev_t)>5:
-                    self.ac_t_filter_cnt+=1
-                    if self.ac_t_filter_cnt>10:
-                        self.ac_t_filter_cnt=0
-                        self.prev_t=t
-                    else:
-                        t=self.prev_t
-                else:
-                    self.ac_t_filter_cnt=0
-                    self.ac_last_t=t
-                
-                if abs(h-self.prev_h)>20:
-                    self.ac_h_filter_cnt+=1
-                    if self.ac_h_filter_cnt>10:
-                        self.ac_h_filter_cnt=0
-                        self.prev_h=h
-                    else:
-                        h=self.prev_h
-                else:
-                    self.ac_h_filter_cnt=0
-                    self.prev_h=h
-                    
+                if t>40:
+                    return False
                 return t,h 
     def process_gravity(self, data):
         if self.lightCertain == 'single':
@@ -1628,13 +1645,23 @@ class Daemon( threading.Thread ):
                 trace.info("no ack")
                 return False
   
-    def process_internal_belt(self,cabinet,speed,direction,timeout):   
+    def process_internal_belt(self,cabinet,speed,direction,timeout,accel_spd):   
+        if int(accel_spd)<int(speed):
+            accel_spd=speed
+            
         if int(speed)==0:
-            speed=0    
+            speed=0  
         else:
-            speed=int(speed)*10+35        
+            speed=int(speed)*10+30  
+            #speed=int(speed)  
+
+        if int(accel_spd)==0:
+            accel_spd=0    
+        else:
+            accel_spd=int(accel_spd)*10+30  
+        
         address=chr(int(cabinet)+64)
-        cmd = '%s,%s,%s,%s,%s,' %(address,'BELT',direction,str(speed),timeout)
+        cmd = '%s,%s,%s,%s,%s,%s,' %(address,'BELT',direction,str(speed),timeout,accel_spd)
         crc = custom_crc32(map(ord, cmd)).to_bytes(4, byteorder='big')
         cmd = cmd.encode()
         cmd += crc
@@ -1646,7 +1673,44 @@ class Daemon( threading.Thread ):
         except:
             trace.error('no ack')
             return False 
-        return True        
+        return True   
+    def process_read_adc(self,data):
+        cabinet=data.get('cabinets',False)
+        if cabinet == False:
+            return False
+        address=chr(int(cabinet)+64) 
+        cmd = '%s,ADC,' %(address)
+        crc = custom_crc32(map(ord, cmd)).to_bytes(4, byteorder='big')
+        cmd = cmd.encode()
+        cmd += crc
+        trace.info('cmd -> %s' %cmd)
+        self.rcomm.dev_send(self.rcomm.dev_comb.Y, cmd)
+        try:
+            r = self.rcomm.dev_comb.Y.q.get(timeout=3)
+            r=r.decode('latin-1').split(',')
+            trace.info("r--->%s"%r)
+            return int(r[1])
+        except:
+            trace.error('no ack')
+            return False
+    def process_read_sensor(self,data):
+        cabinet=data.get('cabinet',False)
+        if cabinet == False:
+            return False
+        address=chr(int(cabinet)+64) 
+        cmd = '%s,SENSOR,' %(address)
+        crc = custom_crc32(map(ord, cmd)).to_bytes(4, byteorder='big')
+        cmd = cmd.encode()
+        cmd += crc
+        trace.info('cmd -> %s' %cmd)
+        self.rcomm.dev_send(self.rcomm.dev_comb.Y, cmd)
+        try:
+            r = self.rcomm.dev_comb.Y.q.get(timeout=3)
+            trace.info("r--->%s"%r)
+            return True
+        except:
+            trace.error('no ack')
+            return False
     def process_sync_belt_push(self,data):
         rev=[]
         slot_id=[]
@@ -1661,7 +1725,7 @@ class Daemon( threading.Thread ):
         
         for d in slot_list:
             num=int(d['slot_no'])
-            num=(101//100-1)*12+num%100
+            num=(num//100-1)*12+num%100
             slot_id.append(int(d['slot_no']))
             delay_cmd+=str(num)+'|'+str(d['stop_delay'])+'!'
             
@@ -1704,12 +1768,11 @@ class Daemon( threading.Thread ):
         except:
             trace.error('no ack')
             return False
-        if r==b'%s,PUSH,OK\r\n' %(address.encode()):
+        if r.startswith(b'%s,PUSH,OK' %(address.encode())):
             return True
         else:
             list_temp=r.split(b',')
             trace.info('list-->%s'%list_temp)
-            
             try:
                 l=len(list_temp[3])
                 
@@ -1871,7 +1934,7 @@ class Daemon( threading.Thread ):
         cabinet =data.get('cabinet',False)
         if cabinet== False:
             return False
-        addr=chr(int('cabinet')-1+ord('x'))
+        addr=chr(int(cabinet)-1+ord('x'))
         command='%sC' %addr
         command = command.encode('latin-1')
         crc = struct.pack('H', self.crc_func(command))
@@ -1902,7 +1965,7 @@ class Daemon( threading.Thread ):
         cabinet =data.get('cabinet',False)
         if cabinet== False:
             return False
-        addr=chr(int('1')-1+ord('x'))
+        addr=chr(int(cabinet)-1+ord('x'))
         command='%sr' %addr
         command = command.encode('latin-1')
         crc = struct.pack('H', self.crc_func(command))
@@ -1961,12 +2024,12 @@ class Daemon( threading.Thread ):
                 return False
         except:
             trace.error('no ack')
-            return False
+        return True
     def process_dual_drop_check(self,data):
         cabinet =data.get('cabinet',False)
         if cabinet== False:
             return False
-        addr=chr(int('cabinet')-1+ord('x'))
+        addr=chr(int(cabinet)-1+ord('x'))
         command='%sH' %addr
         command = command.encode('latin-1')
         crc = struct.pack('H', self.crc_func(command))
@@ -2007,7 +2070,7 @@ class Daemon( threading.Thread ):
             return False
         attr=int(cabinet)-1
         self.rcomm.dev_comb.__dict__[self.drop[attr]].q.queue.clear()
-        s=self.process_drop_json(int(cabinet),r='r')
+        s=self.rcomm.process_drop_json(int(cabinet),r='r')
         trace.info('%s'%s)
         for i in range(0,3):
             try:
@@ -2019,7 +2082,7 @@ class Daemon( threading.Thread ):
                     try:           
                         self.rcomm.dev_comb.__dict__[self.drop[attr]].q.queue.clear()
                         self.rcomm.dev_flush(self.rcomm.dev_comb.__dict__[self.drop[attr]])
-                        self.process_drop_json(int(cabinet),r='w',state=s)
+                        self.rcomm.process_drop_json(int(cabinet),r='w',state=s)
                         return True
                     except:
                         return True
@@ -2751,7 +2814,23 @@ class Daemon( threading.Thread ):
     def process_reset_serial(self,ch):
         rev=rstserial.RstSerial(int(ch))
         return rev
-
+        
+    def process_pcb_hi(self,addr):
+        command='%sH' %addr
+        command = command.encode('latin-1')
+        crc = struct.pack('H', self.crc_func(command))
+        command+= crc    
+        trace.info('%s' %command)
+        self.rcomm.dev_send(self.rcomm.dev_comb.Y, command)
+        try:
+            r = self.rcomm.dev_comb.Y.q.get(timeout=0.5)
+            if r.startswith(b'%sh' %addr.encode()):
+                return True
+            else:
+                return False
+        except:
+            trace.error('no ack')
+            return False
 def main():
     daemon = Daemon()
     daemon.start()

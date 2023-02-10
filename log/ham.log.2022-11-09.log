@@ -1,0 +1,1119 @@
+11/09/2022 09:59:27 AM daemon.py[line:45]INFO - hello
+11/09/2022 09:59:27 AM daemon.py[line:46]INFO - /home/ruijunfeng/works/fusion/d2ham/log/ham.log
+11/09/2022 09:59:27 AM daemon.py[line:135]INFO - this device is single light certain
+11/09/2022 09:59:27 AM rcomm.py[line:72]INFO - ruijunfeng-PC
+11/09/2022 09:59:27 AM rcomm.py[line:103]INFO - hello test d
+11/09/2022 09:59:27 AM rcomm.py[line:51]INFO - found FTDI device:/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B37JZ-if00-port0
+11/09/2022 09:59:27 AM rcomm.py[line:139]ERROR - failed to open device: Y as [Errno 16] could not open port /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B37JZ-if00-port0: [Errno 16] Device or resource busy: '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B37JZ-if00-port0'
+11/09/2022 09:59:27 AM rcomm.py[line:139]ERROR - failed to open device: GRAVITY as [Errno 2] could not open port /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0'
+11/09/2022 09:59:27 AM rcomm.py[line:139]ERROR - failed to open device: SPRIN as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0'
+11/09/2022 09:59:27 AM rcomm.py[line:139]ERROR - failed to open device: DROP as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0'
+11/09/2022 09:59:27 AM rcomm.py[line:139]ERROR - failed to open device: AC as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0'
+11/09/2022 09:59:27 AM rcomm.py[line:139]ERROR - failed to open device: DROP1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0'
+11/09/2022 09:59:27 AM rcomm.py[line:139]ERROR - failed to open device: DROP2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0'
+11/09/2022 09:59:27 AM rcomm.py[line:139]ERROR - failed to open device: AC1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0'
+11/09/2022 09:59:27 AM rcomm.py[line:139]ERROR - failed to open device: AC2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0'
+11/09/2022 09:59:27 AM checkcom.py[line:57]INFO - hello checkcom
+11/09/2022 09:59:53 AM daemon.py[line:45]INFO - hello
+11/09/2022 09:59:53 AM daemon.py[line:46]INFO - /home/ruijunfeng/works/fusion/d2ham/log/ham.log
+11/09/2022 09:59:53 AM daemon.py[line:135]INFO - this device is single light certain
+11/09/2022 09:59:53 AM rcomm.py[line:72]INFO - ruijunfeng-PC
+11/09/2022 09:59:53 AM rcomm.py[line:103]INFO - hello test d
+11/09/2022 09:59:53 AM rcomm.py[line:51]INFO - found FTDI device:/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B37JZ-if00-port0
+11/09/2022 09:59:53 AM rcomm.py[line:139]ERROR - failed to open device: GRAVITY as [Errno 16] could not open port /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B37JZ-if00-port0: [Errno 16] Device or resource busy: '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B37JZ-if00-port0'
+11/09/2022 09:59:53 AM rcomm.py[line:139]ERROR - failed to open device: GR as [Errno 2] could not open port /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0'
+11/09/2022 09:59:53 AM rcomm.py[line:139]ERROR - failed to open device: SPRIN as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0'
+11/09/2022 09:59:53 AM rcomm.py[line:139]ERROR - failed to open device: DROP as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0'
+11/09/2022 09:59:53 AM rcomm.py[line:139]ERROR - failed to open device: AC as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0'
+11/09/2022 09:59:53 AM rcomm.py[line:139]ERROR - failed to open device: DROP1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0'
+11/09/2022 09:59:53 AM rcomm.py[line:139]ERROR - failed to open device: DROP2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0'
+11/09/2022 09:59:53 AM rcomm.py[line:139]ERROR - failed to open device: AC1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0'
+11/09/2022 09:59:53 AM rcomm.py[line:139]ERROR - failed to open device: AC2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0'
+11/09/2022 09:59:53 AM checkcom.py[line:57]INFO - hello checkcom
+11/09/2022 10:00:28 AM daemon.py[line:45]INFO - hello
+11/09/2022 10:00:28 AM daemon.py[line:46]INFO - /home/ruijunfeng/works/fusion/d2ham/log/ham.log
+11/09/2022 10:00:29 AM daemon.py[line:135]INFO - this device is single light certain
+11/09/2022 10:00:29 AM rcomm.py[line:72]INFO - ruijunfeng-PC
+11/09/2022 10:00:29 AM rcomm.py[line:103]INFO - hello test d
+11/09/2022 10:00:29 AM rcomm.py[line:51]INFO - found FTDI device:/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B37JZ-if00-port0
+11/09/2022 10:00:29 AM rcomm.py[line:139]ERROR - failed to open device: GRAVITY as [Errno 16] could not open port /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B37JZ-if00-port0: [Errno 16] Device or resource busy: '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B37JZ-if00-port0'
+11/09/2022 10:00:29 AM rcomm.py[line:139]ERROR - failed to open device: GR as [Errno 2] could not open port /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0'
+11/09/2022 10:00:29 AM rcomm.py[line:139]ERROR - failed to open device: SPRIN as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0'
+11/09/2022 10:00:29 AM rcomm.py[line:139]ERROR - failed to open device: DROP as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0'
+11/09/2022 10:00:29 AM rcomm.py[line:139]ERROR - failed to open device: AC as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0'
+11/09/2022 10:00:29 AM rcomm.py[line:139]ERROR - failed to open device: DROP1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0'
+11/09/2022 10:00:29 AM rcomm.py[line:139]ERROR - failed to open device: DROP2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0'
+11/09/2022 10:00:29 AM rcomm.py[line:139]ERROR - failed to open device: AC1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0'
+11/09/2022 10:00:29 AM rcomm.py[line:139]ERROR - failed to open device: AC2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0'
+11/09/2022 10:00:29 AM checkcom.py[line:57]INFO - hello checkcom
+11/09/2022 10:00:48 AM daemon.py[line:45]INFO - hello
+11/09/2022 10:00:48 AM daemon.py[line:46]INFO - /home/ruijunfeng/works/fusion/d2ham/log/ham.log
+11/09/2022 10:00:48 AM daemon.py[line:135]INFO - this device is single light certain
+11/09/2022 10:00:48 AM rcomm.py[line:72]INFO - ruijunfeng-PC
+11/09/2022 10:00:48 AM rcomm.py[line:103]INFO - hello test d
+11/09/2022 10:00:48 AM rcomm.py[line:51]INFO - found FTDI device:/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B37JZ-if00-port0
+11/09/2022 10:00:48 AM rcomm.py[line:135]DEBUG - dev: GRAVITY opened
+11/09/2022 10:00:48 AM rcomm.py[line:139]ERROR - failed to open device: GR as [Errno 2] could not open port /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0'
+11/09/2022 10:00:48 AM rcomm.py[line:139]ERROR - failed to open device: SPRIN as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0'
+11/09/2022 10:00:48 AM rcomm.py[line:139]ERROR - failed to open device: DROP as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0'
+11/09/2022 10:00:48 AM rcomm.py[line:139]ERROR - failed to open device: AC as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0'
+11/09/2022 10:00:48 AM rcomm.py[line:139]ERROR - failed to open device: DROP1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0'
+11/09/2022 10:00:48 AM rcomm.py[line:139]ERROR - failed to open device: DROP2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0'
+11/09/2022 10:00:48 AM rcomm.py[line:139]ERROR - failed to open device: AC1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0'
+11/09/2022 10:00:48 AM rcomm.py[line:139]ERROR - failed to open device: AC2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0'
+11/09/2022 10:00:48 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:00:48 AM checkcom.py[line:57]INFO - hello checkcom
+11/09/2022 10:02:45 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:02:45 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:02:45 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:02:45 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:02:45 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:02:45 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:02:52 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:02:52 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:02:52 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:02:52 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:02:52 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:02:52 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:02:52 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:02:52 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:02:53 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:02:53 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:02:53 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:02:53 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:02:53 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:02:53 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:02:53 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:02:53 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:03:14 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:03:14 AM rcomm.py[line:168]INFO - data -> b'\xff'
+11/09/2022 10:03:34 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '212,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:03:34 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD\x0c\x14', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:03:34 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'BD\x0c\x14\xc8T`o'
+11/09/2022 10:03:34 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:03:34 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:03:34 AM rcomm.py[line:168]INFO - data -> b'BDOKUQ\xdd\x1c\r\n'
+11/09/2022 10:03:34 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:03:34 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:03:51 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:03:51 AM rcomm.py[line:168]INFO - data -> b'\r\n================== Main Menu ============================\r\n\n'
+11/09/2022 10:04:00 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '401,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:04:00 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x01\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:04:00 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x01\x14\x9a\x1fL\x17'
+11/09/2022 10:04:00 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:04:00 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:04:00 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:04:09 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:04:09 AM rcomm.py[line:168]INFO - data -> b'\r\n====T\x00\x00'
+11/09/2022 10:04:10 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:04:10 AM rcomm.py[line:168]INFO - data -> b'\x00\x94'
+11/09/2022 10:04:10 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:04:10 AM rcomm.py[line:168]INFO - data -> b'\r\n================== Main Menu ============================\r\n\n'
+11/09/2022 10:04:13 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '401,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:04:13 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x01\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:04:13 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x01\x14\x9a\x1fL\x17'
+11/09/2022 10:04:13 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:04:13 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:04:13 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:04:31 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '301,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:04:31 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD\x01\x14', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:04:31 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'CD\x01\x14\x08\xe0\xd5b'
+11/09/2022 10:04:31 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:04:32 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:04:32 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:04:39 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '201,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:04:39 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD\x01\x14', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:04:39 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'BD\x01\x14\xe0D\x83g'
+11/09/2022 10:04:39 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:04:39 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:04:39 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:04:42 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:04:42 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:04:42 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:04:42 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:04:43 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:04:43 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:04:55 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:04:55 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:04:55 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:04:55 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:04:55 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:04:55 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:04:55 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:04:55 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:04:55 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:04:55 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:04:56 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:04:56 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:04:58 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:04:58 AM rcomm.py[line:168]INFO - data -> b'\r\n====\xfd'
+11/09/2022 10:05:23 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:05:23 AM rcomm.py[line:168]INFO - data -> b'\r\n================== Main Menu ============================\r\n\n'
+11/09/2022 10:05:30 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '325,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:05:30 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD\x19\x14', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:05:30 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'CD\x19\x14\xca\xdb\xdch'
+11/09/2022 10:05:30 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:05:30 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:05:30 AM rcomm.py[line:168]INFO - data -> b'CDOK\xbd\xf5\x8b\x19\r\n'
+11/09/2022 10:05:30 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:05:30 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:05:31 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '325,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:05:31 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD\x19\x14', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:05:31 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'CD\x19\x14\xca\xdb\xdch'
+11/09/2022 10:05:31 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:05:31 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:05:31 AM rcomm.py[line:168]INFO - data -> b'CDOK\xbd\xf5\x8b\x19\r\n'
+11/09/2022 10:05:31 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:05:31 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:05:31 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '325,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:05:31 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD\x19\x14', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:05:31 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'CD\x19\x14\xca\xdb\xdch'
+11/09/2022 10:05:31 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:05:31 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:05:31 AM rcomm.py[line:168]INFO - data -> b'CDOK\xbd\xf5\x8b\x19\r\n'
+11/09/2022 10:05:31 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:05:31 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:05:32 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '325,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:05:32 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD\x19\x14', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:05:32 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'CD\x19\x14\xca\xdb\xdch'
+11/09/2022 10:05:32 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:05:32 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:05:32 AM rcomm.py[line:168]INFO - data -> b'CDOK\xbd\xf5\x8b\x19\r\n'
+11/09/2022 10:05:32 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:05:32 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:05:32 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '325,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:05:32 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD\x19\x14', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:05:32 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'CD\x19\x14\xca\xdb\xdch'
+11/09/2022 10:05:32 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:05:33 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:05:33 AM rcomm.py[line:168]INFO - data -> b'CDOK\xbd\xf5\x8b\x19\r\n'
+11/09/2022 10:05:33 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:05:33 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:05:33 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '325,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:05:33 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD\x19\x14', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:05:33 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'CD\x19\x14\xca\xdb\xdch'
+11/09/2022 10:05:33 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:05:33 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:05:33 AM rcomm.py[line:168]INFO - data -> b'CDOK\xbd\xf5\x8b\x19\r\n'
+11/09/2022 10:05:33 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:05:33 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:05:34 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '325,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:05:34 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD\x19\x14', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:05:34 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'CD\x19\x14\xca\xdb\xdch'
+11/09/2022 10:05:34 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:05:34 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:05:34 AM rcomm.py[line:168]INFO - data -> b'CDOK\xbd\xf5\x8b\x19\r\n'
+11/09/2022 10:05:34 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:05:34 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:05:34 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '325,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:05:34 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD\x19\x14', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:05:34 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'CD\x19\x14\xca\xdb\xdch'
+11/09/2022 10:05:34 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:05:34 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:05:34 AM rcomm.py[line:168]INFO - data -> b'CDOK\xbd\xf5\x8b\x19\r\n'
+11/09/2022 10:05:34 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:05:34 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:05:37 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '325,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:05:37 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD\x19\x14', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:05:37 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'CD\x19\x14\xca\xdb\xdch'
+11/09/2022 10:05:37 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:05:37 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:05:37 AM rcomm.py[line:168]INFO - data -> b'CDOK\xbd\xf5\x8b\x19\r\n'
+11/09/2022 10:05:37 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:05:37 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:05:40 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:05:40 AM rcomm.py[line:168]INFO - data -> b'\r\n====\x00\x81\x00\x80'
+11/09/2022 10:06:45 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:06:45 AM rcomm.py[line:168]INFO - data -> b'\r\n================== Main Menu ============================\r\n\n'
+11/09/2022 10:06:55 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:06:55 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:06:55 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:06:55 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:06:55 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:06:55 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:06:55 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:06:55 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:06:56 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:06:56 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:06:56 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:06:56 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:06:56 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:06:56 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:06:56 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:06:56 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:06:57 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:06:57 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:06:57 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:06:57 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:06:57 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:06:57 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:06:57 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:06:57 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:06:57 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:06:57 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:06:57 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:06:57 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:06:57 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:06:57 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:06:57 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:06:57 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:06:58 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:06:58 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:06:58 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:06:58 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:06:58 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:06:58 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:06:58 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:06:58 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:06:58 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:06:58 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:06:58 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:06:58 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:06:58 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:06:58 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:06:58 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:06:58 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:06:59 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:06:59 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:06:59 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:06:59 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:06:59 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:06:59 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:06:59 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:06:59 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:06:59 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:06:59 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:06:59 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:06:59 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:06:59 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:06:59 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:06:59 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:06:59 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:00 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:00 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:00 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:00 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:00 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:00 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:00 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:00 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:00 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:00 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:00 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:00 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:00 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:00 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:00 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:00 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:01 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:01 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:01 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:01 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:01 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:01 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:01 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:01 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:01 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:01 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:01 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:01 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:01 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:01 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:01 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:01 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:02 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:02 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:02 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:02 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:02 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:02 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:02 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:02 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:03 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:03 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:03 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:03 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:03 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:03 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:03 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:03 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:03 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:03 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:03 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:03 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:03 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:03 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:03 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:03 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:04 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:04 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:04 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:04 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:04 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:04 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:04 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:04 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:04 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:04 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:04 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:04 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:04 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:04 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:04 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:04 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:05 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:05 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:05 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:05 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:05 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:05 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:05 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:05 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:05 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:05 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:05 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:05 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:05 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:05 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:05 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:05 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:06 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:06 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:06 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:06 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:06 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:06 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:06 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:06 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:06 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:06 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:06 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:06 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:06 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:06 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:06 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:06 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:06 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:07:06 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:07:06 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:07:06 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:07:06 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:07 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:07:07 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:07:07 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:07:08 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:07:08 AM rcomm.py[line:168]INFO - data -> b'\r\n====\xfd'
+11/09/2022 10:08:54 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:08:54 AM rcomm.py[line:168]INFO - data -> b'\r\n================== Main Menu ============================\r\n\n'
+11/09/2022 10:08:57 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:08:57 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:08:57 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:08:57 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:08:58 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:08:58 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:08:58 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:08:58 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:08:58 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:08:58 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:08:59 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:08:59 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:08:59 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:08:59 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:08:59 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:08:59 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:08:59 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:08:59 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:08:59 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:09:00 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:09:00 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:09:00 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:09:00 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:09:00 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:09:00 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:09:00 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:09:00 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:09:00 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:09:00 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:09:00 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:09:01 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:09:01 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:09:01 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:09:01 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:09:01 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:09:01 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:09:01 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:09:01 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:09:01 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:09:01 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:09:01 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:09:01 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:09:01 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:09:01 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:09:01 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:09:01 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:09:02 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:09:02 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:09:02 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:09:02 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:09:02 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:09:02 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:09:02 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:09:02 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:09:02 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:09:02 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:09:02 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:09:02 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:09:02 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:09:02 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:09:02 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:09:02 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:09:03 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:09:03 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:09:03 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:09:03 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:09:03 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:09:03 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:09:03 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:09:03 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:09:03 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:09:03 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:09:03 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:09:03 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:09:03 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:09:03 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:09:03 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:09:03 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:09:04 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:09:04 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:09:04 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:09:04 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:09:04 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:09:04 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:09:04 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:09:04 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:10:48 AM serv.py[line:47]INFO - serv heatbeat
+11/09/2022 10:11:56 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:11:56 AM rcomm.py[line:168]INFO - data -> b'\r\n======@\x10\x00\x90\x00\x92\x00\x00\x00\x92'
+11/09/2022 10:11:57 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:11:57 AM rcomm.py[line:168]INFO - data -> b'\x00\x00\x00'
+11/09/2022 10:11:57 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:11:57 AM rcomm.py[line:168]INFO - data -> b'\x00\x10'
+11/09/2022 10:14:25 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:25 AM rcomm.py[line:168]INFO - data -> b'\r\n================== Main Menu ============================\r\n\n'
+11/09/2022 10:14:31 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:31 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:31 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:31 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:31 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:31 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:31 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:31 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:32 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:32 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:32 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:32 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:32 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:33 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:33 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:33 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:33 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:33 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:33 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:33 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:33 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:33 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:33 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:33 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:46 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:46 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:46 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:46 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:46 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:46 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:46 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:46 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:46 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:46 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:46 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:46 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:46 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:46 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:46 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:46 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:47 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:47 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:47 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:47 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:47 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:47 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:47 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:47 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:48 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:48 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:48 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:48 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:48 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:48 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:48 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:48 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:48 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:48 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:48 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:48 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:48 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:48 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:48 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:48 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:53 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:53 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:53 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:53 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:53 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:53 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:53 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:53 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:54 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:54 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:54 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:54 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:54 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:54 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:54 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:54 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:55 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:55 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:55 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:55 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:55 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:55 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:55 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:55 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:55 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:55 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:55 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:55 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:55 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:55 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:55 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:55 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:58 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:58 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:58 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:58 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:58 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:58 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:58 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:58 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:58 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:58 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:58 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:58 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:58 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:58 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:58 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:58 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:14:59 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:14:59 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:14:59 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:14:59 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:14:59 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:14:59 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:14:59 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:14:59 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:00 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:00 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:00 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:00 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:00 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:00 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:00 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:00 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:00 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:00 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:00 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:00 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:00 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:00 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:00 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:00 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:01 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:01 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:01 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:01 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:01 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:01 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:01 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:01 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:02 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:02 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:02 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:02 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:02 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:02 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:02 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:02 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:02 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:02 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:02 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:02 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:02 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:02 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:02 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:02 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:03 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:03 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:03 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:03 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:03 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:03 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:03 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:03 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:03 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:03 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:03 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:03 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:03 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:03 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:03 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:03 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:04 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:04 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:04 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:04 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:04 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:04 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:04 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:04 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:04 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:04 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:04 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:04 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:04 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:04 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:04 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:04 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:05 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:05 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:05 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:05 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:05 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:05 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:05 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:05 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:05 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:05 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:05 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:05 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:05 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:05 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:06 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:06 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:06 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:06 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:06 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:06 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:06 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:06 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:06 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:06 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:06 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:06 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:06 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:06 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:06 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:06 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:06 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:06 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:07 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:07 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:07 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:07 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:07 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:07 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:07 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:07 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:07 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:07 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:07 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:07 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:07 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:08 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:08 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:08 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:08 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:08 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:08 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:08 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:08 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:08 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:08 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:08 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:09 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:09 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:09 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:09 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:09 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:09 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:09 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:09 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:09 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:09 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:09 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:09 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:09 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:09 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:09 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:09 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:10 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:10 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:10 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:10 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:10 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:10 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:10 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:10 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:10 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:10 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:10 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:10 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:10 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:10 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:10 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:10 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:11 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:11 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:11 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:11 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:11 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:11 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:11 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:11 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:14 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:14 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:14 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:14 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:14 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:14 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:14 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:14 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:15 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:15 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:15 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:15 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:15 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:15 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:15 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:15 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:15 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:15 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:15 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:15 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:15 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:15 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:15 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:15 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:16 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:16 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:16 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:16 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:16 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:16 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:16 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:16 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:16 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:16 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:16 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:16 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:16 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:16 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:16 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:16 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:17 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:17 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:17 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:17 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:17 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:17 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:17 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:17 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:21 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:21 AM rcomm.py[line:168]INFO - data -> b'\r\n======'
+11/09/2022 10:15:39 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:39 AM rcomm.py[line:168]INFO - data -> b'\r\n================== Main Menu ============================\r\n\n'
+11/09/2022 10:15:41 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:41 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:41 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:41 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:41 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:15:41 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:15:43 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:43 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:43 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:43 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:43 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:43 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:43 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:43 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:44 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:44 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:44 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:44 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:44 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:44 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:44 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:44 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:44 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:44 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:44 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:44 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:44 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:44 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:44 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:44 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:45 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:45 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:45 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:45 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:45 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:45 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:45 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:45 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:45 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:45 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:45 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:45 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:46 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:46 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:46 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:46 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:15:46 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:15:46 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:15:46 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:15:46 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:15:46 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:15:46 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:15:46 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:15:46 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:18:13 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:18:13 AM rcomm.py[line:168]INFO - data -> b'\r\n======\x80\xc4\x00@\x00\x84\x00(\x00\x10'
+11/09/2022 10:18:13 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:18:14 AM rcomm.py[line:168]INFO - data -> b'\x00\x84'
+11/09/2022 10:18:14 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:18:14 AM rcomm.py[line:168]INFO - data -> b'\x00 '
+11/09/2022 10:20:49 AM serv.py[line:47]INFO - serv heatbeat
+11/09/2022 10:22:16 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:22:16 AM rcomm.py[line:168]INFO - data -> b'\r\n================== Main Menu ============================\r\n\n'
+11/09/2022 10:22:22 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:22:22 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:22:22 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:22:22 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:22:22 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:22:22 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:22:22 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:22:22 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:22:23 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '420,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:22:23 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x14\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:22:23 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x14\x14p4\xa6\x15'
+11/09/2022 10:22:23 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:22:23 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:22:23 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:22:23 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:22:23 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:22:26 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:22:26 AM rcomm.py[line:168]INFO - data -> b'\r\n====\xfd'
+11/09/2022 10:23:32 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '401,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:23:32 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x01\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:23:32 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x01\x14\x9a\x1fL\x17'
+11/09/2022 10:23:32 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:23:32 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:23:32 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:23:32 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:23:32 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:23:33 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '401,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:23:33 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x01\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:23:33 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x01\x14\x9a\x1fL\x17'
+11/09/2022 10:23:33 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:23:33 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:23:33 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:23:33 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:23:33 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:23:34 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '401,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:23:34 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x01\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:23:34 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x01\x14\x9a\x1fL\x17'
+11/09/2022 10:23:34 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:23:34 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:23:34 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:23:34 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:23:34 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:23:38 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:23:38 AM rcomm.py[line:168]INFO - data -> b'\r\n====\x11@\x00@'
+11/09/2022 10:23:38 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:23:38 AM rcomm.py[line:168]INFO - data -> b'\x00%'
+11/09/2022 10:23:39 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:23:39 AM rcomm.py[line:168]INFO - data -> b'\r\n================== Main Menu ============================\r\n\n'
+11/09/2022 10:23:41 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '401,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:23:41 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x01\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:23:41 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x01\x14\x9a\x1fL\x17'
+11/09/2022 10:23:41 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:23:41 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:23:41 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:23:42 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '401,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:23:42 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x01\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:23:42 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x01\x14\x9a\x1fL\x17'
+11/09/2022 10:23:42 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:23:42 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:23:42 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:23:42 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:23:42 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:23:43 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '401,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:23:43 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x01\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:23:43 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x01\x14\x9a\x1fL\x17'
+11/09/2022 10:23:43 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:23:43 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:23:43 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:23:43 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:23:43 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:23:43 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '401,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:23:43 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x01\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:23:43 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x01\x14\x9a\x1fL\x17'
+11/09/2022 10:23:43 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:23:43 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:23:43 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:23:43 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:23:43 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:23:44 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '401,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:23:44 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x01\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:23:44 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x01\x14\x9a\x1fL\x17'
+11/09/2022 10:23:44 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:23:44 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:23:44 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:23:44 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:23:44 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:23:44 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '401,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:23:44 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x01\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:23:44 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x01\x14\x9a\x1fL\x17'
+11/09/2022 10:23:44 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:23:44 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:23:44 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:23:44 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:23:44 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:23:57 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:23:57 AM rcomm.py[line:168]INFO - data -> b'\xff'
+11/09/2022 10:24:05 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '401,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:24:05 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD', 'BD', 'CD', 'DD\x01\x14', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:24:05 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'DD\x01\x14\x9a\x1fL\x17'
+11/09/2022 10:24:05 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:24:05 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:24:05 AM rcomm.py[line:168]INFO - data -> b'DDOK/\n\x12l\r\n'
+11/09/2022 10:24:05 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:24:05 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:24:08 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:24:08 AM rcomm.py[line:168]INFO - data -> b'\r\n====A\xd0\x00('
+11/09/2022 10:24:08 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:24:08 AM rcomm.py[line:168]INFO - data -> b'\x00H'
+11/09/2022 10:26:14 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:26:14 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:26:14 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:26:14 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:26:14 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:26:14 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:26:15 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:26:15 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:26:15 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:26:15 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:26:15 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:26:15 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:26:17 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:26:17 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:26:17 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:26:17 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:26:18 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:26:18 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:26:18 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:26:18 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:26:18 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:26:18 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:26:18 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:26:18 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:26:19 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:26:19 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:26:19 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:26:19 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:26:19 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:26:19 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:26:20 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:26:20 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:26:20 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:26:20 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:26:20 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:26:20 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:26:22 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:26:22 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:26:22 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:26:22 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:26:22 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:26:22 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:26:37 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:26:37 AM rcomm.py[line:168]INFO - data -> b'\xff\xff\xef\xef\x01\xfc\x08\xc3\x08\x00\x00-\x00\x00\x81\xf5?\x08\xe0'
+11/09/2022 10:26:39 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:26:39 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:26:39 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:26:39 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:26:39 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:26:39 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:26:40 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:26:40 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:26:40 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:26:40 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:26:40 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:26:40 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:26:41 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:26:41 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:26:41 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:26:41 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:26:41 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:26:41 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:26:42 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:26:42 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:26:42 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:26:42 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:26:42 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:26:42 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:26:59 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:26:59 AM rcomm.py[line:168]INFO - data -> b'\r\n====\xfd'
+11/09/2022 10:27:00 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:27:00 AM rcomm.py[line:168]INFO - data -> b'\r\n================== Main Menu ============================\r\n\n'
+11/09/2022 10:27:02 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:27:02 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:27:02 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:27:02 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:27:02 AM daemon.py[line:1573]ERROR - no ack
+11/09/2022 10:27:02 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'error'}}
+11/09/2022 10:27:04 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:27:04 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:27:04 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:27:04 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:27:04 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:27:04 AM rcomm.py[line:168]INFO - data -> b'ADOKh|:\xa4\r\n'
+11/09/2022 10:27:04 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:27:04 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:27:05 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:27:05 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:27:05 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:27:05 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:27:05 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:27:05 AM rcomm.py[line:168]INFO - data -> b'ADOKh|:\xa4\r\n'
+11/09/2022 10:27:05 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:27:05 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:27:05 AM daemon.py[line:156]INFO - gui msg: {'req': {'device': 'd', 'slots': '101,100', 'cabinet': '1', 'command': 'gravity'}}
+11/09/2022 10:27:05 AM daemon.py[line:1556]DEBUG - cmd_group -> ['AD\x01\x14', 'BD', 'CD', 'DD', 'ED', 'FD', 'GD', 'HD', 'ID', 'JD', 'KD', 'LD', 'MD', 'ND', 'OD']
+11/09/2022 10:27:05 AM daemon.py[line:1563]DEBUG - curr cmd ----> b'AD\x01\x14\xddid\xdf'
+11/09/2022 10:27:05 AM rcomm.py[line:243]DEBUG - flush GRAVITY
+11/09/2022 10:27:05 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:27:05 AM rcomm.py[line:168]INFO - data -> b'ADOKh|:\xa4\r\n'
+11/09/2022 10:27:05 AM daemon.py[line:1570]INFO - gravity command 1
+11/09/2022 10:27:05 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'id': None, 'device': 'd', 'result': 'success'}}
+11/09/2022 10:27:07 AM rcomm.py[line:164]INFO - read: GRAVITY
+11/09/2022 10:27:07 AM rcomm.py[line:168]INFO - data -> b'\r\n====\xfd'
+11/09/2022 10:30:49 AM serv.py[line:47]INFO - serv heatbeat
+11/09/2022 10:40:49 AM serv.py[line:47]INFO - serv heatbeat

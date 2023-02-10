@@ -1,0 +1,54 @@
+10/15/2022 04:06:37 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 04:06:38 PM rcomm.py[line:164]INFO - read: Y
+10/15/2022 04:06:38 PM rcomm.py[line:196]ERROR - failed to read dev: Y as [Errno 5] Input/output error
+10/15/2022 04:06:38 PM rcomm.py[line:139]ERROR - failed to open device: Y as [Errno 2] could not open port /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B309M-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B309M-if00-port0'
+10/15/2022 04:06:38 PM rcomm.py[line:139]ERROR - failed to open device: GRAVITY as [Errno 2] could not open port /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0'
+10/15/2022 04:06:38 PM rcomm.py[line:139]ERROR - failed to open device: SPRIN as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0'
+10/15/2022 04:06:38 PM rcomm.py[line:139]ERROR - failed to open device: DROP as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0'
+10/15/2022 04:06:38 PM rcomm.py[line:139]ERROR - failed to open device: AC as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0'
+10/15/2022 04:06:38 PM rcomm.py[line:139]ERROR - failed to open device: DROP1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0'
+10/15/2022 04:06:38 PM rcomm.py[line:139]ERROR - failed to open device: DROP2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0'
+10/15/2022 04:06:38 PM rcomm.py[line:139]ERROR - failed to open device: AC1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0'
+10/15/2022 04:06:38 PM rcomm.py[line:139]ERROR - failed to open device: AC2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0'
+10/15/2022 04:16:37 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 04:26:37 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 04:36:37 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 04:46:37 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 04:56:37 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 05:06:37 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 05:16:37 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 05:26:37 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 05:36:37 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 05:46:37 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 05:56:37 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 06:06:37 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 06:16:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 06:26:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 06:36:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 06:46:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 06:56:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 07:06:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 07:16:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 07:26:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 07:36:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 07:46:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 07:56:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 08:06:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 08:16:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 08:26:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 08:36:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 08:46:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 08:56:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 09:06:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 09:16:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 09:26:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 09:36:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 09:46:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 09:56:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 10:06:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 10:16:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 10:26:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 10:36:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 10:46:38 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 11:25:32 PM serv.py[line:47]INFO - serv heatbeat
+10/15/2022 11:35:32 PM serv.py[line:47]INFO - serv heatbeat

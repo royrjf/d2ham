@@ -92,19 +92,19 @@ class Rcomm( threading.Thread ):
             self.xmodem_crc_func = crcmod.mkCrcFun(0x11021, rev=False,
                                                     initCrc=0xffff, xorOut=0x0000)
         elif pcname.find('rui') is 0:
-            #self.trace.info('hello m3')
-            #_Y_search_device(self.trace )
-            #self.xmodem_crc_func = crcmod.mkCrcFun(0x11021, rev=False,
-            #                                        initCrc=0xffff, xorOut=0x0000)
-            pass
+            self.trace.info('hello m3')
+            _Y_search_device(self.trace )
+            self.xmodem_crc_func = crcmod.mkCrcFun(0x11021, rev=False,
+                                                    initCrc=0xffff, xorOut=0x0000)
+        #    pass
         elif pcname.find('rui') is 0:
             #self.trace.info('hello m3')
             #self.trace.info('hello test Y')
-            #self.trace.info('hello test d2')
-            #_Y_search_device(self.trace )
-            #self.xmodem_crc_func = crcmod.mkCrcFun(0x11021, rev=False,
-            #                                        initCrc=0xffff, xorOut=0x0000)
-            pass
+            self.trace.info('hello test d')
+            _Y_search_device(self.trace )
+            self.xmodem_crc_func = crcmod.mkCrcFun(0x11021, rev=False,
+                                                    initCrc=0xffff, xorOut=0x0000)
+            #pass
         else:
             self.trace.info('hello d2')
             
@@ -198,16 +198,6 @@ class Rcomm( threading.Thread ):
                     self.open_dev()
                 except:
                     self.trace("failed to open dev")
-                    try:
-                        self.open_dev()
-                        self.trace("open dev success")
-                    except:
-                        self.trace("failed to open dev")
-                        try:
-                            self.open_dev()
-                            self.trace("open dev success")
-                        except:
-                            self.trace("failed to open dev")
     
     def run(self):
         for name in self.dev_comb.dev_list:

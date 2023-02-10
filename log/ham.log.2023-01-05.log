@@ -1,0 +1,415 @@
+01/05/2023 10:44:58 AM daemon.py[line:45]INFO - hello
+01/05/2023 10:44:58 AM daemon.py[line:46]INFO - /home/ruijunfeng/works/fusion/d2ham/log/ham.log
+01/05/2023 10:44:58 AM daemon.py[line:135]INFO - this device is single light certain
+01/05/2023 10:44:58 AM rcomm.py[line:72]INFO - ruijunfeng-PC
+01/05/2023 10:44:58 AM rcomm.py[line:95]INFO - hello m3
+01/05/2023 10:44:58 AM rcomm.py[line:51]INFO - found FTDI device:/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B37JZ-if00-port0
+01/05/2023 10:44:58 AM rcomm.py[line:135]DEBUG - dev: Y opened
+01/05/2023 10:44:58 AM rcomm.py[line:139]ERROR - failed to open device: GRAVITY as [Errno 2] could not open port /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0'
+01/05/2023 10:44:58 AM rcomm.py[line:139]ERROR - failed to open device: SPRIN as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0'
+01/05/2023 10:44:58 AM rcomm.py[line:139]ERROR - failed to open device: DROP as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0'
+01/05/2023 10:44:58 AM rcomm.py[line:139]ERROR - failed to open device: AC as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0'
+01/05/2023 10:44:58 AM rcomm.py[line:139]ERROR - failed to open device: DROP1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0'
+01/05/2023 10:44:58 AM rcomm.py[line:139]ERROR - failed to open device: DROP2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0'
+01/05/2023 10:44:58 AM rcomm.py[line:139]ERROR - failed to open device: AC1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0'
+01/05/2023 10:44:58 AM rcomm.py[line:139]ERROR - failed to open device: AC2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0'
+01/05/2023 10:44:58 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 10:44:58 AM checkcom.py[line:57]INFO - hello checkcom
+01/05/2023 10:46:50 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 10:46:50 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 10:46:50 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 10:46:50 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 10:46:50 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 10:46:50 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 10:46:50 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 10:47:43 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 10:47:43 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 10:47:43 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 10:47:43 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 10:47:43 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 10:47:43 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 10:47:43 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 10:54:58 AM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 11:04:58 AM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 11:06:50 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:06:50 AM rcomm.py[line:168]INFO - data -> b'\xff\xff'
+01/05/2023 11:06:50 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:06:50 AM rcomm.py[line:168]INFO - data -> b'\xff\xfe\xff'
+01/05/2023 11:08:25 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:08:25 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 11:08:25 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:08:25 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:08:25 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:08:25 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:08:25 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:08:40 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:08:40 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 11:08:40 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:08:40 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:08:40 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:08:40 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:08:41 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:10:58 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:10:58 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 11:10:58 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:10:58 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:10:58 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:10:58 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:10:58 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:12:35 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:12:35 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 11:12:35 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:12:35 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:12:35 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:12:35 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:12:35 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:14:58 AM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 11:20:59 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:20:59 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 11:20:59 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:20:59 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:20:59 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:20:59 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:20:59 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:21:02 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:21:02 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 11:21:02 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:21:02 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:21:02 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:21:02 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:21:02 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:21:09 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '3', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:21:09 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,60,40,60,\xad\x19g\x95'
+01/05/2023 11:21:09 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:21:09 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:21:09 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:21:09 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:21:09 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:21:12 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:21:12 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 11:21:12 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:21:12 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:21:12 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:21:12 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:21:12 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:21:15 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '3', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:21:15 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,60,40,60,\xad\x19g\x95'
+01/05/2023 11:21:15 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:21:15 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:21:15 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:21:15 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:21:15 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:21:16 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:21:16 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 11:21:16 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:21:16 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:21:17 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:21:17 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:21:17 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:21:36 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '3', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:21:36 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,60,40,60,\xad\x19g\x95'
+01/05/2023 11:21:36 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:21:36 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:21:36 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:21:36 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:21:36 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:21:49 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:21:49 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 11:21:49 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:21:49 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:21:49 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:21:49 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:21:49 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:24:58 AM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 11:26:41 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '3', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:26:41 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,60,40,60,\xad\x19g\x95'
+01/05/2023 11:26:41 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:26:41 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:26:41 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:26:41 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:26:41 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:27:04 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:27:04 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 11:27:04 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:27:04 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:27:05 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:27:05 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:27:05 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:27:36 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '3', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:27:36 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,60,40,60,\xad\x19g\x95'
+01/05/2023 11:27:36 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:27:36 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:27:36 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:27:36 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:27:37 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:28:10 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:28:10 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 11:28:10 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:28:10 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:28:10 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:28:10 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:28:10 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:32:20 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:32:20 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 11:32:20 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:32:20 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:32:20 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:32:20 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:32:20 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:32:24 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:32:24 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 11:32:24 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:32:24 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:32:24 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:32:24 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:32:24 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:32:30 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:32:30 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 11:32:30 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:32:30 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:32:30 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:32:30 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:32:30 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:32:31 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:32:31 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 11:32:31 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:32:31 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:32:31 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:32:31 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:32:31 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:34:32 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:34:32 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 11:34:32 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:34:33 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:34:33 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:34:33 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:34:33 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:34:35 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:34:35 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 11:34:35 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:34:35 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:34:36 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:34:36 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:34:36 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:34:40 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:34:40 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 11:34:40 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:34:40 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:34:40 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf\xff'
+01/05/2023 11:34:40 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf\xff'
+01/05/2023 11:34:40 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:34:42 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:34:42 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 11:34:42 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:34:42 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:34:42 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:34:42 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:34:42 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:34:58 AM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 11:39:45 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:39:45 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 11:39:45 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:39:45 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:39:45 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:39:45 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:39:45 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:41:00 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:41:00 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 11:41:00 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:41:00 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:41:00 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:41:00 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:41:01 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:41:25 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:41:25 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 11:41:25 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:41:25 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:41:26 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:41:26 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:41:26 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:42:24 AM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 11:42:24 AM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 11:42:24 AM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 11:42:24 AM rcomm.py[line:164]INFO - read: Y
+01/05/2023 11:42:24 AM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 11:42:24 AM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 11:42:25 AM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 11:44:58 AM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 11:54:58 AM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 12:04:58 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 12:14:58 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 12:24:58 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 12:34:58 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 12:44:58 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 12:54:58 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 01:04:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 01:08:54 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:08:54 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 01:08:54 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:08:54 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:08:54 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:08:54 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:08:54 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:09:26 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:09:26 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 01:09:26 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:09:26 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:09:26 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:09:26 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:09:26 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:13:14 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:13:14 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 01:13:14 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:13:14 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:13:14 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:13:14 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:13:14 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:14:42 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:14:42 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 01:14:42 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:14:42 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:14:42 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:14:42 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:14:42 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:14:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 01:16:53 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:16:53 PM rcomm.py[line:168]INFO - data -> b'\xff'
+01/05/2023 01:18:07 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:18:07 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 01:18:07 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:18:07 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:18:07 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:18:07 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:18:07 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:18:13 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:18:13 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 01:18:13 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:18:13 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:18:13 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:18:13 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:18:13 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:19:00 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:19:00 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 01:19:00 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:19:00 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:19:00 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:19:00 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:19:00 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:19:37 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:19:37 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 01:19:37 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:19:37 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:19:37 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:19:37 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:19:37 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:19:49 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:19:49 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 01:19:49 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:19:49 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:19:49 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:19:49 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:19:49 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:20:10 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:20:10 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 01:20:10 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:20:10 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:20:10 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:20:10 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:20:10 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:24:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 01:29:26 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:29:26 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 01:29:26 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:29:26 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:29:27 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf\xff'
+01/05/2023 01:29:27 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf\xff'
+01/05/2023 01:29:27 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:29:27 PM rcomm.py[line:168]INFO - data -> b'\x00\xff'
+01/05/2023 01:29:27 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:29:28 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:29:28 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 01:29:28 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:29:28 PM daemon.py[line:1694]ERROR - no ack
+01/05/2023 01:29:28 PM daemon.py[line:586]INFO - motor 0 not ack
+01/05/2023 01:29:28 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'error', 'device': 'y'}}
+01/05/2023 01:29:28 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:29:28 PM rcomm.py[line:168]INFO - data -> b'\x00\xff'
+01/05/2023 01:29:29 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:29:29 PM rcomm.py[line:168]INFO - data -> b'\x00'
+01/05/2023 01:34:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 01:44:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 01:52:50 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:52:50 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,40,40,40,\x1f\x99]e'
+01/05/2023 01:52:50 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:52:50 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:52:50 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:52:50 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:52:50 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:52:54 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'l', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:52:54 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,l,0,40,0,\xee=Y\xd7'
+01/05/2023 01:52:54 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:52:54 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:52:54 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:52:54 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:52:54 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:53:05 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'r', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:53:05 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,r,0,40,0,\xce\xbc\xb9\xe7'
+01/05/2023 01:53:05 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:53:05 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:53:05 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:53:05 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:53:05 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:53:11 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'r', 'timeout': '40', 'speed': '1', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:53:11 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,r,40,40,40,\xbf\xd5&+'
+01/05/2023 01:53:11 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:53:11 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:53:11 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:53:11 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:53:11 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:53:13 PM daemon.py[line:156]INFO - gui msg: {'req': {'cabinets': '1', 'direction': 'r', 'timeout': '40', 'speed': '0', 'command': 'convey_belt', 'device': 'y'}}
+01/05/2023 01:53:13 PM daemon.py[line:1688]INFO - cmd -> b'A,BELT,r,0,40,0,\xce\xbc\xb9\xe7'
+01/05/2023 01:53:13 PM rcomm.py[line:233]DEBUG - flush Y
+01/05/2023 01:53:13 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 01:53:13 PM rcomm.py[line:168]INFO - data -> b'A,BELT[\xcf'
+01/05/2023 01:53:13 PM daemon.py[line:1692]INFO - r--->b'A,BELT[\xcf'
+01/05/2023 01:53:13 PM daemon.py[line:176]DEBUG - send_json -> {'rep': {'result': 'success', 'device': 'y'}}
+01/05/2023 01:54:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 02:04:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 02:14:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 02:24:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 02:34:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 02:44:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 02:49:59 PM rcomm.py[line:164]INFO - read: Y
+01/05/2023 02:49:59 PM rcomm.py[line:196]ERROR - failed to read dev: Y as [Errno 5] Input/output error
+01/05/2023 02:49:59 PM rcomm.py[line:139]ERROR - failed to open device: Y as [Errno 2] could not open port /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B37JZ-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B37JZ-if00-port0'
+01/05/2023 02:49:59 PM rcomm.py[line:139]ERROR - failed to open device: GRAVITY as [Errno 2] could not open port /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DK0B1FIK-if00-port0'
+01/05/2023 02:49:59 PM rcomm.py[line:139]ERROR - failed to open device: SPRIN as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if01-port0'
+01/05/2023 02:49:59 PM rcomm.py[line:139]ERROR - failed to open device: DROP as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if02-port0'
+01/05/2023 02:49:59 PM rcomm.py[line:139]ERROR - failed to open device: AC as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D1_b0001-if03-port0'
+01/05/2023 02:49:59 PM rcomm.py[line:139]ERROR - failed to open device: DROP1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if00-port0'
+01/05/2023 02:49:59 PM rcomm.py[line:139]ERROR - failed to open device: DROP2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if01-port0'
+01/05/2023 02:49:59 PM rcomm.py[line:139]ERROR - failed to open device: AC1 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if02-port0'
+01/05/2023 02:49:59 PM rcomm.py[line:139]ERROR - failed to open device: AC2 as [Errno 2] could not open port /dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0: [Errno 2] No such file or directory: '/dev/serial/by-id/usb-fusionRobotics_D2_b0001-if03-port0'
+01/05/2023 02:54:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 03:04:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 03:14:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 03:24:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 03:34:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 03:44:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 03:54:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 04:04:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 04:14:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 04:24:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 04:34:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 04:44:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 04:54:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 05:04:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 05:14:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 05:24:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 05:34:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 05:44:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 05:54:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 06:04:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 06:14:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 06:24:59 PM serv.py[line:47]INFO - serv heatbeat
+01/05/2023 06:34:59 PM serv.py[line:47]INFO - serv heatbeat

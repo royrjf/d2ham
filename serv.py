@@ -29,8 +29,8 @@ class Serv( threading.Thread ):
     
     def run(self):
         self.gui_sock.bind('tcp://0.0.0.0:%d' %(self.GUI_PORT))
-        self.term_sock.bind('tcp://0.0.0.0:%d' %(self.TERM_PORT))
-        self.pub_sock.bind('tcp://0.0.0.0:%d' %(self.PUB_PORT))
+        #self.term_sock.bind('tcp://0.0.0.0:%d' %(self.TERM_PORT))
+        #self.pub_sock.bind('tcp://0.0.0.0:%d' %(self.PUB_PORT))
         
         last_heatbeat = time.time()
         log_time_10min = time.time()
